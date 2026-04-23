@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hujjatlar — LegalEase UZ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy:    #0D1B2A;
+      --navy2:   #142233;
+      --gold:    #C9A84C;
+      --gold2:   #E8C76A;
+      --cream:   #F5F0E8;
+      --cream2:  #EDE8DE;
+      --white:   #FFFFFF;
+      --text:    #1A1A2E;
+      --text2:   #4A5568;
+      --text3:   #8896A8;
+      --border:  rgba(0,0,0,0.08);
+      --radius:  12px;
+      --radius-lg: 20px;
+      --shadow:  0 4px 24px rgba(0,0,0,0.08);
+      --shadow-lg: 0 12px 48px rgba(0,0,0,0.14);
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'DM Sans', sans-serif;
+      --transition: 0.2s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); font-size: 16px; color: var(--text); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+
+    /* NAVBAR */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner { display: flex; align-items: center; height: 68px; gap: 32px; }
+    .logo { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--navy); }
+    .logo-uz { color: var(--gold); }
+    .nav-links { display: flex; gap: 4px; flex: 1; }
+    .nav-links a { font-size: 14px; color: var(--text2); padding: 8px 14px; border-radius: 8px; transition: color var(--transition), background var(--transition); }
+    .nav-links a:hover, .nav-links a.active { color: var(--navy); background: var(--cream); }
+    .nav-actions { display: flex; align-items: center; gap: 8px; }
+    .btn-ghost { background: none; border: none; color: var(--text2); font-size: 15px; font-weight: 400; padding: 10px 16px; border-radius: var(--radius); cursor: pointer; font-family: var(--font-body); transition: color var(--transition), background var(--transition); }
+    .btn-ghost:hover { color: var(--navy); background: var(--cream); }
+    .btn-primary { display: inline-block; background: var(--gold); color: var(--navy); font-family: var(--font-body); font-weight: 500; font-size: 15px; padding: 12px 24px; border-radius: var(--radius); border: none; cursor: pointer; transition: background var(--transition); }
+    .btn-primary:hover { background: var(--gold2); }
+
+    /* PAGE HEADER */
+    .page-header {
+      padding: 108px 0 48px;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+    }
+    .page-header h1 { font-family: var(--font-display); font-size: clamp(28px, 4vw, 44px); font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+    .page-header p { font-size: 16px; color: var(--text2); font-weight: 300; }
+
+    /* SEARCH & FILTER */
+    .filter-bar {
+      padding: 24px 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 68px;
+      z-index: 50;
+    }
+    .filter-inner { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .search-input {
+      flex: 1;
+      min-width: 200px;
+      padding: 10px 16px 10px 40px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 14px;
+      font-family: var(--font-body);
+      color: var(--text);
+      outline: none;
+      background: var(--cream) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%238896A8' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.099zm-5.242 1.656a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z'/%3E%3C/svg%3E") no-repeat 12px center;
+      transition: border-color var(--transition);
+    }
+    .search-input:focus { border-color: var(--gold); }
+    .filter-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter-tag {
+      padding: 7px 16px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 500;
+      border: 1.5px solid var(--border);
+      background: var(--white);
+      color: var(--text2);
+      cursor: pointer;
+      transition: all var(--transition);
+      font-family: var(--font-body);
+    }
+    .filter-tag:hover { border-color: var(--gold); color: var(--navy); }
+    .filter-tag.active { background: var(--navy); border-color: var(--navy); color: var(--white); }
+
+    /* DOCUMENTS GRID */
+    .docs-section { padding: 40px 0 80px; }
+    .docs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+    .doc-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .doc-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform var(--transition);
+      transform-origin: left;
+    }
+    .doc-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--gold); }
+    .doc-card:hover::before { transform: scaleX(1); }
+    .doc-card.popular { border-color: var(--gold); }
+    .doc-card.popular::before { transform: scaleX(1); }
+
+    .doc-badge {
+      position: absolute; top: 14px; right: 14px;
+      background: var(--gold); color: var(--navy);
+      font-size: 10px; font-weight: 600;
+      padding: 3px 9px; border-radius: 100px;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .doc-icon { font-size: 36px; margin-bottom: 14px; display: block; }
+    .doc-card h3 { font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+    .doc-card p { font-size: 13px; color: var(--text2); line-height: 1.6; margin-bottom: 16px; }
+    .doc-meta { display: flex; align-items: center; justify-content: space-between; }
+    .doc-time { font-size: 12px; color: var(--text3); }
+    .doc-price { font-size: 13px; font-weight: 600; color: var(--gold); }
+
+    .no-results { text-align: center; padding: 60px 20px; color: var(--text3); font-size: 15px; display: none; }
+
+    /* MODAL — FORMA */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(13,27,42,0.6);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+
+    .doc-modal {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      width: 100%; max-width: 680px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.2);
+      transform: translateY(24px) scale(0.98);
+      opacity: 0;
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s ease;
+    }
+    .modal-overlay.open .doc-modal { transform: translateY(0) scale(1); opacity: 1; }
+
+    .modal-head {
+      padding: 28px 32px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
+      position: sticky; top: 0; background: var(--white); z-index: 2;
+    }
+    .modal-head-info h2 { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .modal-head-info p { font-size: 13px; color: var(--text3); }
+    .modal-close-btn {
+      width: 32px; height: 32px; border-radius: 8px; border: 1px solid var(--border);
+      background: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+      color: var(--text3); font-size: 18px; flex-shrink: 0;
+      transition: background var(--transition), color var(--transition);
+    }
+    .modal-close-btn:hover { background: var(--cream); color: var(--navy); }
+
+    /* STEPS inside modal */
+    .modal-steps { display: flex; border-bottom: 1px solid var(--border); padding: 0 32px; gap: 0; }
+    .modal-step {
+      flex: 1; text-align: center; padding: 14px 8px;
+      font-size: 13px; font-weight: 500; color: var(--text3);
+      border-bottom: 2px solid transparent;
+      transition: color var(--transition), border-color var(--transition);
+      cursor: default;
+    }
+    .modal-step.active { color: var(--navy); border-bottom-color: var(--gold); }
+    .modal-step.done { color: var(--gold); }
+
+    .modal-body { padding: 28px 32px; }
+
+    /* FORM */
+    .form-section-title { font-size: 13px; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; margin-top: 24px; }
+    .form-section-title:first-child { margin-top: 0; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 500; color: var(--text2); margin-bottom: 6px; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 11px 14px;
+      border: 1.5px solid var(--border); border-radius: var(--radius);
+      font-size: 14px; font-family: var(--font-body); color: var(--text);
+      background: var(--white); outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
+    }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: var(--text3); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+
+    .modal-footer {
+      padding: 20px 32px;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      position: sticky; bottom: 0; background: var(--white); z-index: 2;
+    }
+    .btn-back { background: none; border: 1.5px solid var(--border); color: var(--text2); font-size: 14px; font-weight: 500; padding: 10px 20px; border-radius: var(--radius); cursor: pointer; font-family: var(--font-body); transition: all var(--transition); }
+    .btn-back:hover { border-color: var(--navy); color: var(--navy); }
+    .btn-next { background: var(--gold); color: var(--navy); font-size: 15px; font-weight: 500; padding: 11px 28px; border-radius: var(--radius); border: none; cursor: pointer; font-family: var(--font-body); transition: background var(--transition); }
+    .btn-next:hover { background: var(--gold2); }
+
+    /* PREVIEW */
+    .preview-box {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      font-size: 14px;
+      line-height: 1.9;
+      color: var(--text);
+      white-space: pre-wrap;
+      font-family: 'Georgia', serif;
+      min-height: 300px;
+    }
+    .preview-box h3 { font-family: var(--font-display); font-size: 18px; text-align: center; margin-bottom: 20px; color: var(--navy); }
+    .preview-placeholder { color: var(--gold); font-style: italic; }
+
+    /* TOAST */
+    .toast {
+      position: fixed; bottom: 32px; left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--navy); color: var(--white);
+      padding: 14px 24px; border-radius: var(--radius);
+      font-size: 14px; font-weight: 500;
+      box-shadow: var(--shadow-lg); z-index: 9999;
+      opacity: 0; transition: opacity 0.3s ease, transform 0.3s ease;
+      white-space: nowrap; pointer-events: none;
+    }
+    .toast.success { border-left: 4px solid #4CAF50; }
+    .toast.error { border-left: 4px solid #f44336; }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    @media (max-width: 1024px) { .docs-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) {
+      .nav-links, .nav-actions { display: none; }
+      .docs-grid { grid-template-columns: 1fr; }
+      .filter-inner { flex-direction: column; align-items: stretch; }
+      .modal-body { padding: 20px; }
+      .modal-head { padding: 20px; }
+      .modal-steps { padding: 0 20px; }
+      .modal-footer { padding: 16px 20px; }
+      .form-row, .form-row-3 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-inner container">
+      <a href="../index.html" class="logo">
+        <span>⚖</span>
+        LegalEase <span class="logo-uz">UZ</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html#xizmatlar">Xizmatlar</a></li>
+        <li><a href="../index.html#qanday">Qanday ishlaydi</a></li>
+        <li><a href="../index.html#narxlar">Narxlar</a></li>
+        <li><a href="hujjatlar.html" class="active">Hujjatlar</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="../index.html" class="btn-ghost">← Bosh sahifa</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="container">
+      <h1>Hujjat generatori</h1>
+      <p>Kerakli hujjat turini tanlang — forma to'ldiring — tayyor hujjat ko'ring</p>
+    </div>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <div class="container">
+      <div class="filter-inner">
+        <input type="text" class="search-input" id="searchInput" placeholder="Hujjat qidiring..." oninput="filterDocs()" />
+        <div class="filter-tags">
+          <button class="filter-tag active" onclick="setFilter('hammasi', this)">Hammasi</button>
+          <button class="filter-tag" onclick="setFilter('shartnoma', this)">Shartnomalar</button>
+          <button class="filter-tag" onclick="setFilter('kompaniya', this)">Kompaniya</button>
+          <button class="filter-tag" onclick="setFilter('shaxsiy', this)">Shaxsiy</button>
+          <button class="filter-tag" onclick="setFilter('moliya', this)">Moliyaviy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DOCUMENTS -->
+  <section class="docs-section">
+    <div class="container">
+      <div class="docs-grid" id="docsGrid">
+
+        <div class="doc-card popular" data-cat="shartnoma" onclick="openDoc('xizmat')">
+          <div class="doc-badge">Mashhur</div>
+          <span class="doc-icon">📋</span>
+          <h3>Xizmat ko'rsatish shartnomasi</h3>
+          <p>Ikki tomon o'rtasida xizmat ko'rsatish shartlarini belgilovchi rasmiy shartnoma</p>
+          <div class="doc-meta">
+            <span class="doc-time">⏱ 5 daqiqa</span>
+            <span class="doc-price">Bepul</span>
+          </div>
+        </div>
+
+        <div class="doc-card" data-cat="shartnoma" onclick="openDoc('ijara')">
+          <span class="doc-icon">🏠</span>
+          <h3>Ijara shartnomasi</h3>
+          <p>Ko'chmas mulk yoki mol-mulkni ijaraga berish uchun rasmiy shartnoma</p>
+          <div class="doc-meta">
+            <span class="doc-time">⏱ 7 daqiqa</span>
+            <span class="doc-price">Bepul</span>
+          </div>
+        </div>
+
+        <div class="doc-card" data-cat="shartnoma" onclick="openDoc('sotish')">
+          <span class="doc-icon">🤝</span>
+          <h3>Sotish-sotib olish shartnomasi</h3>
+          <p>Tovar yoki mulkni sotish jarayonini rasmiylashtiruvchi shartnoma</p>
+          <div class="doc-meta">
+            <span class="doc-time">⏱ 6 daqiqa</span>
+            <span class="doc-price">Bepul</span>
+          </div>
+        </div>
+
+        <div class="doc-card" data-cat="shartnoma" onclick="openDoc('pudrat')">
+          <span class="doc-icon">🔨</span>
+          <h3>Pudrat shartnomasi</h3>
+          <p>Qurilish yoki ta'mirlash ishlarini bajarish uchun pudrat shartnomasi</p>
+          <div class="doc-meta">
+            <span class="doc-time">⏱ 8 daqiqa</span>
+            <span class="doc-price">Bepul</span>
+          </div>
+        </div>
+
+        <div class="doc-card popular" data-cat="shaxsiy" onclick="openDoc('ishonch')">
+          <div class="doc-badge">Ko'p yuklangan</div>
+          <span class="doc-icon">📜</span>
+          <h3>Ishonch xati</h3>
+          <p>Biror shaxsga muayyan huquqlarni beruvchi rasmiy ishonch xati</p>
+          <div class="doc-meta">
+            <span class="doc-time">⏱ 4 daqiqa</span>
+            <span class="doc-price">Bepul</span>
+          </div>
+        </div>
+
+        <div class="doc-card" data-cat="shaxsiy" onclick="openDoc('ariza')">
+          <span class="doc-icon">✍️</span>
+          <h3>Ariza (umumiy)</h3>
+          <p>Tashkilot yoki muassasaga yo'llangan rasmiy ariza shakli</p>
+          <div class="doc-meta">
+            <span class="doc-time">⏱ 3 daqiqa</span>
+            <span class="doc-price">Bepul</span>
+          </div>
+        </div>
+
+        <div class="doc-card popular" data-cat="kompaniya" onclick="openDoc('mchj')">
+          <div class="doc-badge">Mashhur</div>
+          <span class="doc-icon">🏢</span>
+          <h3>MCHJ ta'sis hujjatlari</h3>
+          <p>Mas'uliyati cheklangan jamiyat ochish uchun barcha zarur hujjatlar to'plami</p>
+          <div class="doc-meta">
+            <span class="doc-time">⏱ 15 daqiqa</span>
+            <span class="doc-price">Bepul</span>
+          </div>
+        </div>
+
+        <div class="doc-card" data-cat="kompaniya" onclick="openDoc('nizom')">
+          <span class="doc-icon">📗</span>
+          <h3>Kompaniya nizomi</h3>
+          <p>Tashkilotning ichki faoliyat tartibini belgilovchi asosiy hujjat</p>
+          <div class="doc-meta">
+            <span class="doc-time">⏱ 10 daqiqa</span>
+            <span class="doc-price">Bepul</span>
+          </div>
+        </div>
+
+        <div class="doc-card" data-cat="kompaniya" onclick="openDoc('buyruq')">
+          <span class="doc-icon">📌</span>
+          <h3>Direktor buyrug'i</h3>
+          <p>Kompaniya ichki buyruqlari va farmoyishlari uchun standart shakl</p>
+          <div class="doc-meta">
+            <span class="doc-time">⏱ 3 daqiqa</span>
+            <span class="doc-price">Bepul</span>
+          </div>
+        </div>
+
+        <div class="doc-card" data-cat="moliya" onclick="openDoc('qarz')">
+          <span class="doc-icon">💰</span>
+          <h3>Qarz shartnomasi</h3>
+          <p>Pul mablag'larini qarzga berish va qaytarish shartlarini belgilovchi hujjat</p>
+          <div class="doc-meta">
+            <span class="doc-time">⏱ 6 daqiqa</span>
+            <span class="doc-price">Bepul</span>
+          </div>
+        </div>
+
+        <div class="doc-card" data-cat="moliya" onclick="openDoc('hisob')">
+          <span class="doc-icon">🧾</span>
+          <h3>Hisob-faktura</h3>
+          <p>Tovar yoki xizmatlar uchun rasmiy to'lov hujjati</p>
+          <div class="doc-meta">
+            <span class="doc-time">⏱ 4 daqiqa</span>
+            <span class="doc-price">Bepul</span>
+          </div>
+        </div>
+
+        <div class="doc-card" data-cat="shaxsiy" onclick="openDoc('mehnat')">
+          <span class="doc-icon">👔</span>
+          <h3>Mehnat shartnomasi</h3>
+          <p>Ish beruvchi va xodim o'rtasidagi munosabatlarni tartibga soluvchi shartnoma</p>
+          <div class="doc-meta">
+            <span class="doc-time">⏱ 8 daqiqa</span>
+            <span class="doc-price">Bepul</span>
+          </div>
+        </div>
+
+      </div>
+      <div class="no-results" id="noResults">🔍 Hujjat topilmadi. Boshqa so'z bilan qidiring.</div>
+    </div>
+  </section>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
+    <div class="doc-modal" id="docModal">
+
+      <div class="modal-head">
+        <div class="modal-head-info">
+          <h2 id="modalTitle">Hujjat nomi</h2>
+          <p id="modalSubtitle">Ma'lumotlarni to'ldiring</p>
+        </div>
+        <button class="modal-close-btn" onclick="closeModal()">✕</button>
+      </div>
+
+      <div class="modal-steps">
+        <div class="modal-step active" id="step1tab">1. Ma'lumotlar</div>
+        <div class="modal-step" id="step2tab">2. Ko'rish</div>
+      </div>
+
+      <div class="modal-body" id="modalBody">
+        <!-- Forma bu yerga dinamik qo'shiladi -->
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-back" id="backBtn" onclick="goBack()" style="visibility:hidden">← Orqaga</button>
+        <button class="btn-next" id="nextBtn" onclick="goNext()">Ko'rib chiqish →</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // ===================================================
+    // HUJJAT SHABLONLARI
+    // ===================================================
+    const DOCS = {
+      xizmat: {
+        title: "Xizmat ko'rsatish shartnomasi",
+        subtitle: "Ikki tomon o'rtasida xizmat shartlarini belgilang",
+        fields: [
+          { section: "Shartnoma ma'lumotlari" },
+          { id: "sana", label: "Shartnoma sanasi", type: "date", placeholder: "" },
+          { id: "raqam", label: "Shartnoma raqami", type: "text", placeholder: "№ 01/2026" },
+          { id: "shahar", label: "Shahar", type: "text", placeholder: "Toshkent" },
+          { section: "Buyurtmachi (1-tomon)" },
+          { id: "b_ism", label: "To'liq ismi sharifi", type: "text", placeholder: "Karimov Akbar Saidovich" },
+          { id: "b_passport", label: "Passport seriya/raqami", type: "text", placeholder: "AA 1234567" },
+          { id: "b_manzil", label: "Manzil", type: "text", placeholder: "Toshkent sh., Chilonzor t." },
+          { section: "Ijrochi (2-tomon)" },
+          { id: "i_ism", label: "To'liq ismi sharifi", type: "text", placeholder: "Rahimov Bobur Umarovich" },
+          { id: "i_passport", label: "Passport seriya/raqami", type: "text", placeholder: "AB 7654321" },
+          { id: "i_manzil", label: "Manzil", type: "text", placeholder: "Toshkent sh., Yunusobod t." },
+          { section: "Shartnoma shartlari" },
+          { id: "xizmat_turi", label: "Xizmat turi/tavsifi", type: "textarea", placeholder: "Masalan: veb-sayt yaratish, dizayn ishlari..." },
+          { id: "muddat", label: "Bajarish muddati", type: "text", placeholder: "30 kun" },
+          { id: "summa", label: "Xizmat narxi (so'm)", type: "text", placeholder: "5 000 000" },
+          { id: "tolov", label: "To'lov tartibi", type: "text", placeholder: "Avans 50%, qolgan qism topshirilganda" },
+        ],
+        template: (d) => `XIZMAT KO'RSATISH SHARTNOMASI
+
+№ ${d.raqam || '___'}                    ${d.shahar || 'Toshkent'} sh., ${formatDate(d.sana)}
+
+Ushbu shartnoma quyidagi tomonlar o'rtasida tuzildi:
+
+BUYURTMACHI: ${d.b_ism || '________________________'}, passport: ${d.b_passport || '__ _______'}, manzil: ${d.b_manzil || '________________________'}, bundan buyon "Buyurtmachi" deb ataladi.
+
+IJROCHI: ${d.i_ism || '________________________'}, passport: ${d.i_passport || '__ _______'}, manzil: ${d.i_manzil || '________________________'}, bundan buyon "Ijrochi" deb ataladi.
+
+1. SHARTNOMA PREDMETI
+
+1.1. Ijrochi Buyurtmachi topshirig'iga ko'ra quyidagi xizmatni ko'rsatish majburiyatini oladi:
+${d.xizmat_turi || '________________________'}
+
+1.2. Xizmatni bajarish muddati: ${d.muddat || '___'} dan iborat.
+
+2. NARX VA TO'LOV TARTIBI
+
+2.1. Xizmat narxi: ${d.summa || '___'} (${sumWords(d.summa)}) so'm.
+2.2. To'lov tartibi: ${d.tolov || '________________________'}.
+
+3. TOMONLARNING MAJBURIYATLARI
+
+3.1. Ijrochi majburiyatlari:
+   - Xizmatni belgilangan muddat va sifatda bajarish;
+   - Buyurtmachi talablarini hisobga olish;
+   - Xizmat natijasini o'z vaqtida topshirish.
+
+3.2. Buyurtmachi majburiyatlari:
+   - To'lovni belgilangan tartibda amalga oshirish;
+   - Kerakli ma'lumotlarni taqdim etish;
+   - Ishni qabul qilib olish.
+
+4. JAVOBGARLIK
+
+4.1. Shartnoma shartlarini buzgan tomon ikkinchi tomonga etkazilgan zararni qoplashga majbur.
+
+5. YAKUNIY QOIDALAR
+
+5.1. Ushbu shartnoma imzolangan kundan kuchga kiradi.
+5.2. Shartnoma 2 (ikki) nusxada tuzildi.
+
+TOMONLARNING IMZOLARI:
+
+BUYURTMACHI:                    IJROCHI:
+${d.b_ism || '________________'}    ${d.i_ism || '________________'}
+Imzo: ___________               Imzo: ___________`
+      },
+
+      ijara: {
+        title: "Ijara shartnomasi",
+        subtitle: "Ko'chmas mulk yoki mulkni ijaraga berish",
+        fields: [
+          { section: "Shartnoma ma'lumotlari" },
+          { id: "sana", label: "Sana", type: "date" },
+          { id: "raqam", label: "Shartnoma raqami", type: "text", placeholder: "№ 02/2026" },
+          { id: "shahar", label: "Shahar", type: "text", placeholder: "Toshkent" },
+          { section: "Ijaraga beruvchi" },
+          { id: "b_ism", label: "To'liq ismi", type: "text", placeholder: "Ismi Sharifi" },
+          { id: "b_passport", label: "Passport", type: "text", placeholder: "AA 1234567" },
+          { section: "Ijarachilar" },
+          { id: "i_ism", label: "To'liq ismi", type: "text", placeholder: "Ismi Sharifi" },
+          { id: "i_passport", label: "Passport", type: "text", placeholder: "AB 7654321" },
+          { section: "Mulk ma'lumotlari" },
+          { id: "mulk_turi", label: "Mulk turi", type: "text", placeholder: "2 xonali kvartira / ofis" },
+          { id: "mulk_manzil", label: "Mulk manzili", type: "text", placeholder: "Toshkent sh., Mirzo Ulug'bek t., X ko'cha, 5-uy" },
+          { id: "maydon", label: "Maydon (kv.m)", type: "text", placeholder: "65" },
+          { section: "Ijara shartlari" },
+          { id: "muddat", label: "Ijara muddati", type: "text", placeholder: "12 oy (2026 yil 1 may — 2027 yil 1 may)" },
+          { id: "summa", label: "Oylik ijara narxi (so'm)", type: "text", placeholder: "3 000 000" },
+          { id: "garov", label: "Garov summasi (so'm)", type: "text", placeholder: "6 000 000" },
+        ],
+        template: (d) => `IJARA SHARTNOMASI
+
+№ ${d.raqam || '___'}                    ${d.shahar || 'Toshkent'} sh., ${formatDate(d.sana)}
+
+IJARAGA BERUVCHI: ${d.b_ism || '________________________'}, passport: ${d.b_passport || '__ _______'}
+
+IJARACHI: ${d.i_ism || '________________________'}, passport: ${d.i_passport || '__ _______'}
+
+1. SHARTNOMA PREDMETI
+
+1.1. Ijaraga beruvchi quyidagi mulkni ijarachiga ijaraga beradi:
+   Mulk turi: ${d.mulk_turi || '________________________'}
+   Manzil: ${d.mulk_manzil || '________________________'}
+   Maydon: ${d.maydon || '___'} kv.m.
+
+2. IJARA MUDDATI
+
+2.1. Ijara muddati: ${d.muddat || '________________________'}.
+
+3. NARX VA TO'LOV
+
+3.1. Oylik ijara haqi: ${d.summa || '___'} so'm.
+3.2. Garov summasi: ${d.garov || '___'} so'm (muddati tugagach qaytariladi).
+3.3. To'lov har oyning 1-sanasigacha amalga oshiriladi.
+
+4. TOMONLARNING MAJBURIYATLARI
+
+4.1. Ijaraga beruvchi mulkni yaxshi holatda topshiradi.
+4.2. Ijarachi mulkni ehtiyotkorlik bilan ishlatadi va belgilangan maqsadda foydalanadi.
+
+5. SHARTNOMANI BEKOR QILISH
+
+5.1. Har qaysi tomon 30 kunlik ogohlantirishdan keyin shartnomani bekor qila oladi.
+
+TOMONLARNING IMZOLARI:
+
+IJARAGA BERUVCHI:               IJARACHI:
+${d.b_ism || '________________'}    ${d.i_ism || '________________'}
+Imzo: ___________               Imzo: ___________`
+      },
+
+      sotish: {
+        title: "Sotish-sotib olish shartnomasi",
+        subtitle: "Tovar yoki mulkni rasmiy sotish",
+        fields: [
+          { section: "Shartnoma ma'lumotlari" },
+          { id: "sana", label: "Sana", type: "date" },
+          { id: "shahar", label: "Shahar", type: "text", placeholder: "Toshkent" },
+          { section: "Sotuvchi" },
+          { id: "b_ism", label: "To'liq ismi", type: "text", placeholder: "Ismi Sharifi" },
+          { id: "b_passport", label: "Passport", type: "text", placeholder: "AA 1234567" },
+          { section: "Xaridor" },
+          { id: "i_ism", label: "To'liq ismi", type: "text", placeholder: "Ismi Sharifi" },
+          { id: "i_passport", label: "Passport", type: "text", placeholder: "AB 7654321" },
+          { section: "Tovar/Mulk" },
+          { id: "tovar", label: "Tovar/mulk nomi va tavsifi", type: "textarea", placeholder: "Masalan: noutbuk Dell Inspiron 15, seriya raqami: XXXX" },
+          { id: "summa", label: "Narx (so'm)", type: "text", placeholder: "10 000 000" },
+          { id: "tolov_turi", label: "To'lov usuli", type: "text", placeholder: "Naqd pul / bank o'tkazmasi" },
+        ],
+        template: (d) => `SOTISH-SOTIB OLISH SHARTNOMASI
+
+${d.shahar || 'Toshkent'} sh., ${formatDate(d.sana)}
+
+SOTUVCHI: ${d.b_ism || '________________________'}, passport: ${d.b_passport || '__ _______'}
+
+XARIDOR: ${d.i_ism || '________________________'}, passport: ${d.i_passport || '__ _______'}
+
+1. SHARTNOMA PREDMETI
+
+1.1. Sotuvchi Xaridorga quyidagini sotadi:
+${d.tovar || '________________________'}
+
+2. NARX VA TO'LOV
+
+2.1. Narx: ${d.summa || '___'} (${sumWords(d.summa)}) so'm.
+2.2. To'lov usuli: ${d.tolov_turi || '________________________'}.
+2.3. To'lov shartnoma imzolangandan keyin amalga oshiriladi.
+
+3. TOVAR TOPSHIRISH
+
+3.1. Sotuvchi tovarni shartnoma imzolangandan so'ng darhol topshiradi.
+3.2. Tovar qabul qilinganida Xaridor tekshirib ko'rish huquqiga ega.
+
+4. KAFOLATLAR
+
+4.1. Sotuvchi tovar uning shaxsiy mulki ekanligini va uchinchi shaxslar da'volari yo'qligini kafolatlaydi.
+
+TOMONLARNING IMZOLARI:
+
+SOTUVCHI:                       XARIDOR:
+${d.b_ism || '________________'}    ${d.i_ism || '________________'}
+Imzo: ___________               Imzo: ___________`
+      },
+
+      pudrat: {
+        title: "Pudrat shartnomasi",
+        subtitle: "Qurilish yoki ta'mirlash ishlari uchun",
+        fields: [
+          { section: "Shartnoma ma'lumotlari" },
+          { id: "sana", label: "Sana", type: "date" },
+          { id: "raqam", label: "Raqam", type: "text", placeholder: "№ 03/2026" },
+          { id: "shahar", label: "Shahar", type: "text", placeholder: "Toshkent" },
+          { section: "Buyurtmachi" },
+          { id: "b_ism", label: "To'liq ismi", type: "text", placeholder: "Ismi Sharifi" },
+          { id: "b_passport", label: "Passport", type: "text", placeholder: "AA 1234567" },
+          { section: "Pudratchi" },
+          { id: "i_ism", label: "To'liq ismi / Kompaniya nomi", type: "text", placeholder: "Ismi Sharifi yoki Kompaniya" },
+          { id: "i_passport", label: "Passport / STIR", type: "text", placeholder: "AA 1234567" },
+          { section: "Ish ma'lumotlari" },
+          { id: "ish_turi", label: "Ish turi va hajmi", type: "textarea", placeholder: "Masalan: 3 xonali kvartira ta'miri, 80 kv.m." },
+          { id: "manzil", label: "Ish manzili", type: "text", placeholder: "Ish baajariladigan manzil" },
+          { id: "boshlanish", label: "Boshlanish sanasi", type: "date" },
+          { id: "muddat", label: "Bajarish muddati (kun)", type: "text", placeholder: "60" },
+          { id: "summa", label: "Umumiy narx (so'm)", type: "text", placeholder: "50 000 000" },
+        ],
+        template: (d) => `PUDRAT SHARTNOMASI
+
+№ ${d.raqam || '___'}                    ${d.shahar || 'Toshkent'} sh., ${formatDate(d.sana)}
+
+BUYURTMACHI: ${d.b_ism || '________________________'}, passport: ${d.b_passport || '__ _______'}
+
+PUDRATCHI: ${d.i_ism || '________________________'}, ${d.i_passport || '__ _______'}
+
+1. SHARTNOMA PREDMETI
+
+1.1. Pudratchi quyidagi ishlarni bajarish majburiyatini oladi:
+${d.ish_turi || '________________________'}
+Manzil: ${d.manzil || '________________________'}
+
+2. MUDDATLAR
+
+2.1. Ish boshlanish sanasi: ${formatDate(d.boshlanish)}.
+2.2. Bajarish muddati: ${d.muddat || '___'} kalendar kun.
+
+3. NARX
+
+3.1. Umumiy narx: ${d.summa || '___'} so'm.
+3.2. Avans 30%, qolgan qism ishlar tugagach to'lanadi.
+
+4. SIFAT KAFOLATI
+
+4.1. Pudratchi bajarilgan ishlarga 12 oylik kafolat beradi.
+
+TOMONLARNING IMZOLARI:
+
+BUYURTMACHI:                    PUDRATCHI:
+${d.b_ism || '________________'}    ${d.i_ism || '________________'}
+Imzo: ___________               Imzo: ___________`
+      },
+
+      ishonch: {
+        title: "Ishonch xati",
+        subtitle: "Vakolatli shaxsga huquq berish",
+        fields: [
+          { section: "Ishonch xati ma'lumotlari" },
+          { id: "sana", label: "Sana", type: "date" },
+          { id: "shahar", label: "Shahar", type: "text", placeholder: "Toshkent" },
+          { section: "Ishonch beruvchi (Vakillashtiruvchi)" },
+          { id: "b_ism", label: "To'liq ismi sharifi", type: "text", placeholder: "Karimov Akbar Saidovich" },
+          { id: "b_passport", label: "Passport seriya/raqami", type: "text", placeholder: "AA 1234567" },
+          { id: "b_manzil", label: "Ro'yxat manzili", type: "text", placeholder: "Toshkent sh., X ko'cha, X-uy" },
+          { section: "Ishonch oluvchi (Vakil)" },
+          { id: "i_ism", label: "To'liq ismi sharifi", type: "text", placeholder: "Rahimov Bobur Umarovich" },
+          { id: "i_passport", label: "Passport seriya/raqami", type: "text", placeholder: "AB 7654321" },
+          { id: "i_manzil", label: "Ro'yxat manzili", type: "text", placeholder: "Toshkent sh., Y ko'cha, Y-uy" },
+          { section: "Vakolat" },
+          { id: "vakolat", label: "Berilayotgan vakolat", type: "textarea", placeholder: "Masalan: bank hisobvarag'idan pul olish, hujjatlarni imzolash, mulkni ro'yxatdan o'tkazish..." },
+          { id: "amal_muddati", label: "Amal qilish muddati", type: "text", placeholder: "1 yil (2026 yil 23 aprel — 2027 yil 23 aprel)" },
+        ],
+        template: (d) => `ISHONCH XATI
+
+${d.shahar || 'Toshkent'} sh., ${formatDate(d.sana)}
+
+Men, ${d.b_ism || '________________________'}, passport: ${d.b_passport || '__ _______'}, manzil: ${d.b_manzil || '________________________'},
+
+ushbu ishonch xati bilan ${d.i_ism || '________________________'}, passport: ${d.i_passport || '__ _______'}, manzil: ${d.i_manzil || '________________________'},
+
+ga quyidagi vakolatlarni beraman:
+
+${d.vakolat || '________________________'}
+
+Ushbu ishonch xati ${d.amal_muddati || '1 yil'} davomida amal qiladi.
+
+Qayta ishonch berish huquqi: yo'q.
+
+Ishonch beruvchi: ${d.b_ism || '________________________'}
+Imzo: ___________
+
+Notarial tasdiqlash uchun mo'ljallangan joy:
+_____________________________________________`
+      },
+
+      ariza: {
+        title: "Ariza (umumiy shakl)",
+        subtitle: "Tashkilot yoki muassasaga rasmiy ariza",
+        fields: [
+          { section: "Ariza ma'lumotlari" },
+          { id: "sana", label: "Sana", type: "date" },
+          { id: "kimga_tashkilot", label: "Tashkilot nomi", type: "text", placeholder: "Toshkent shahar hokimiyati" },
+          { id: "kimga_lavozim", label: "Rahbar lavozimi va ismi", type: "text", placeholder: "Hokim Aliyev A.A." },
+          { section: "Ariza beruvchi" },
+          { id: "b_ism", label: "To'liq ismi sharifi", type: "text", placeholder: "Ismi Familiyasi Otasining ismi" },
+          { id: "b_manzil", label: "Manzil", type: "text", placeholder: "Toshkent sh., X ko'cha, X-uy" },
+          { id: "b_tel", label: "Telefon raqami", type: "text", placeholder: "+998 90 123 45 67" },
+          { section: "Ariza matni" },
+          { id: "matn", label: "Ariza matni (so'rov/muammo)", type: "textarea", placeholder: "Ariza mazmunini yozing..." },
+          { id: "talab", label: "Talab/iltimos", type: "textarea", placeholder: "Nima qilishingizni so'raysiz..." },
+        ],
+        template: (d) => `${d.kimga_tashkilot || '________________________'}
+${d.kimga_lavozim || '________________________'}
+ga
+
+${d.b_ism || '________________________'}
+dan
+Manzil: ${d.b_manzil || '________________________'}
+Tel: ${d.b_tel || '________________________'}
+
+ARIZA
+
+Hurmatli ${d.kimga_lavozim ? d.kimga_lavozim.split(' ')[0] : 'Rahbar'},
+
+${d.matn || '________________________'}
+
+Yuqoridagilarni hisobga olib, Sizdan quyidagini so'rayman:
+
+${d.talab || '________________________'}
+
+Umid qilamanki, mening murojjaatimga e'tibor qaratasiz.
+
+Hurmat bilan,
+${d.b_ism || '________________________'}
+
+"${formatDate(d.sana)}"                        Imzo: ___________`
+      },
+
+      mchj: {
+        title: "MCHJ ta'sis hujjatlari",
+        subtitle: "Mas'uliyati cheklangan jamiyat ochish",
+        fields: [
+          { section: "Kompaniya ma'lumotlari" },
+          { id: "comp_nomi", label: "Kompaniya nomi", type: "text", placeholder: "\"Yangi Davr\" MCHJ" },
+          { id: "comp_faoliyat", label: "Asosiy faoliyat turi", type: "text", placeholder: "Savdo, xizmatlar ko'rsatish..." },
+          { id: "comp_manzil", label: "Yuridik manzil", type: "text", placeholder: "Toshkent sh., Chilonzor t., X ko'cha, X-uy" },
+          { id: "ustav_fond", label: "Ustav fondi (so'm)", type: "text", placeholder: "1 000 000" },
+          { section: "Ta'sischi 1" },
+          { id: "t1_ism", label: "To'liq ismi", type: "text", placeholder: "Karimov Akbar Saidovich" },
+          { id: "t1_passport", label: "Passport", type: "text", placeholder: "AA 1234567" },
+          { id: "t1_ulush", label: "Ulushi (%)", type: "text", placeholder: "100" },
+          { section: "Direktor" },
+          { id: "dir_ism", label: "Direktor ismi", type: "text", placeholder: "Karimov Akbar Saidovich" },
+          { id: "dir_passport", label: "Passport", type: "text", placeholder: "AA 1234567" },
+          { id: "sana", label: "Ta'sis sanasi", type: "date" },
+        ],
+        template: (d) => `${d.comp_nomi || 'KOMPANIYA NOMI'} MAS'ULIYATI CHEKLANGAN JAMIYATINING
+
+TA'SIS SHARTNOMASI
+
+${formatDate(d.sana)}                                  Toshkent shahri
+
+TA'SISCHILA(R):
+${d.t1_ism || '________________________'}, passport: ${d.t1_passport || '__ _______'} — ${d.t1_ulush || '100'}% ulush
+
+1. UMUMIY QOIDALAR
+
+1.1. Ta'schilar quyidagi mas'uliyati cheklangan jamiyatni tashkil etadilar:
+   Nomi: ${d.comp_nomi || '________________________'}
+   Yuridik manzil: ${d.comp_manzil || '________________________'}
+   Faoliyat turi: ${d.comp_faoliyat || '________________________'}
+
+2. USTAV FONDI
+
+2.1. Ustav fondi: ${d.ustav_fond || '___'} so'm.
+2.2. Ustav fondi to'liq ta'sischiga tegishli.
+
+3. BOSHQARUV
+
+3.1. Jamiyat Direktori: ${d.dir_ism || '________________________'}, passport: ${d.dir_passport || '__ _______'}.
+3.2. Direktor jamiyatni boshqaradi va uning nomidan ish yuritadi.
+
+4. FOYDA TAQSIMOTI
+
+4.1. Foyda ulushga mutanosib ravishda taqsimlanadi.
+
+5. TUGATISH
+
+5.1. Jamiyat O'zbekiston Respublikasi qonunchiligiga muvofiq tugatilishi mumkin.
+
+TA'SISCHINING IMZOSI:
+
+${d.t1_ism || '________________________'}
+Imzo: ___________
+
+DIREKTOR:
+${d.dir_ism || '________________________'}
+Imzo: ___________`
+      },
+
+      nizom: {
+        title: "Kompaniya nizomi",
+        subtitle: "Tashkilotning ichki faoliyat qoidalari",
+        fields: [
+          { section: "Kompaniya" },
+          { id: "comp_nomi", label: "Kompaniya to'liq nomi", type: "text", placeholder: "\"Yangi Davr\" MCHJ" },
+          { id: "comp_manzil", label: "Yuridik manzil", type: "text", placeholder: "Toshkent sh., ..." },
+          { id: "comp_faoliyat", label: "Faoliyat yo'nalishlari", type: "textarea", placeholder: "Savdo, ishlab chiqarish, xizmatlar..." },
+          { id: "ustav_fond", label: "Ustav fondi (so'm)", type: "text", placeholder: "1 000 000" },
+          { id: "dir_ism", label: "Direktor ismi", type: "text", placeholder: "Karimov Akbar Saidovich" },
+          { id: "sana", label: "Tasdiqlash sanasi", type: "date" },
+        ],
+        template: (d) => `${d.comp_nomi || 'KOMPANIYA'} MAS'ULIYATI CHEKLANGAN JAMIYATINING
+
+N I Z O M I
+
+Tasdiqlangan: ${formatDate(d.sana)}
+
+1. UMUMIY QOIDALAR
+
+1.1. ${d.comp_nomi || '________________________'} mas'uliyati cheklangan jamiyati O'zbekiston Respublikasi qonunchiligiga muvofiq tashkil etilgan.
+1.2. Yuridik manzil: ${d.comp_manzil || '________________________'}.
+1.3. Jamiyat yuridik shaxs hisoblanadi.
+
+2. FAOLIYAT MAQSADLARI
+
+2.1. Jamiyatning asosiy faoliyat yo'nalishlari:
+${d.comp_faoliyat || '________________________'}
+
+3. USTAV FONDI
+
+3.1. Ustav fondi hajmi: ${d.ustav_fond || '___'} so'm.
+
+4. BOSHQARUV ORGANLARI
+
+4.1. Jamiyatning oliy organi — Ta'schilar umumiy yig'ilishi.
+4.2. Ijroiya organ — Direktor: ${d.dir_ism || '________________________'}.
+4.3. Direktor jamiyat nomidan imzo chekish huquqiga ega.
+
+5. FOYDA VA ZARARLAR
+
+5.1. Foyda ta'schilar ulushiga mutanosib taqsimlanadi.
+5.2. Zarar ustav fondi hisobidan qoplanadi.
+
+6. HUJJATLAR VA HISOBOT
+
+6.1. Jamiyat belgilangan tartibda buxgalteriya hisobi yuritadi.
+6.2. Yillik hisobot ta'schilar yig'ilishida tasdiqlanadi.
+
+7. QAYTA TASHKIL ETISH VA TUGATISH
+
+7.1. Jamiyat ta'schilar yig'ilishi qaroriga ko'ra yoki sud qarori asosida tugatilishi mumkin.
+
+Tasdiqlagan: ${d.dir_ism || '________________________'}
+Imzo: ___________`
+      },
+
+      buyruq: {
+        title: "Direktor buyrug'i",
+        subtitle: "Kompaniya ichki buyruqlari",
+        fields: [
+          { section: "Buyruq ma'lumotlari" },
+          { id: "comp_nomi", label: "Kompaniya nomi", type: "text", placeholder: "\"Yangi Davr\" MCHJ" },
+          { id: "raqam", label: "Buyruq raqami", type: "text", placeholder: "№ 15" },
+          { id: "sana", label: "Sana", type: "date" },
+          { id: "mavzu", label: "Buyruq mavzusi", type: "text", placeholder: "Xodim qabul qilish to'g'risida" },
+          { id: "matn", label: "Buyruq matni (BUYURAMAN)", type: "textarea", placeholder: "1. ...\n2. ...\n3. ..." },
+          { id: "dir_ism", label: "Direktor ismi", type: "text", placeholder: "Karimov Akbar Saidovich" },
+          { id: "asosiy", label: "Asos (ixtiyoriy)", type: "text", placeholder: "Xodimning arizasi asosida" },
+        ],
+        template: (d) => `${d.comp_nomi || 'KOMPANIYA NOMI'}
+
+BUYRUQ
+
+№ ${d.raqam || '___'}                                   ${formatDate(d.sana)}
+
+${d.mavzu ? d.mavzu.toUpperCase() : 'BUYRUQ MAVZUSI'} TO'G'RISIDA
+
+${d.asosiy ? `Asos: ${d.asosiy}\n\n` : ''}BUYURAMAN:
+
+${d.matn || '1. ...\n2. ...\n3. ...'}
+
+Ushbu buyruqning bajarilishini nazorat qilishni o'z zimmasiga olaman.
+
+Direktor: ${d.dir_ism || '________________________'}
+Imzo: ___________`
+      },
+
+      qarz: {
+        title: "Qarz shartnomasi",
+        subtitle: "Pul mablag'larini qarzga berish",
+        fields: [
+          { section: "Shartnoma" },
+          { id: "sana", label: "Sana", type: "date" },
+          { id: "shahar", label: "Shahar", type: "text", placeholder: "Toshkent" },
+          { section: "Qarz beruvchi" },
+          { id: "b_ism", label: "To'liq ismi", type: "text", placeholder: "Ismi Sharifi" },
+          { id: "b_passport", label: "Passport", type: "text", placeholder: "AA 1234567" },
+          { section: "Qarz oluvchi" },
+          { id: "i_ism", label: "To'liq ismi", type: "text", placeholder: "Ismi Sharifi" },
+          { id: "i_passport", label: "Passport", type: "text", placeholder: "AB 7654321" },
+          { section: "Qarz shartlari" },
+          { id: "summa", label: "Qarz summasi (so'm)", type: "text", placeholder: "10 000 000" },
+          { id: "muddat", label: "Qaytarish muddati", type: "text", placeholder: "6 oy, 2026 yil 23 oktabr" },
+          { id: "foiz", label: "Foiz stavkasi (ixtiyoriy)", type: "text", placeholder: "0% (foizsiz) yoki 12% yillik" },
+        ],
+        template: (d) => `QARZ SHARTNOMASI
+
+${d.shahar || 'Toshkent'} sh., ${formatDate(d.sana)}
+
+QARZ BERUVCHI: ${d.b_ism || '________________________'}, passport: ${d.b_passport || '__ _______'}
+
+QARZ OLUVCHI: ${d.i_ism || '________________________'}, passport: ${d.i_passport || '__ _______'}
+
+1. SHARTNOMA PREDMETI
+
+1.1. Qarz beruvchi Qarz oluvchiga ${d.summa || '___'} (${sumWords(d.summa)}) so'm miqdorida qarz beradi.
+1.2. Foiz stavkasi: ${d.foiz || 'foizsiz'}.
+
+2. QAYTARISH MUDDATI
+
+2.1. Qarz ${d.muddat || '________________________'} ga qadar qaytarilishi shart.
+
+3. QAYTARISH TARTIBI
+
+3.1. Qarz naqd pul yoki bank o'tkazmasi orqali qaytariladi.
+3.2. Muddatida qaytarilmagan qarz uchun har kuni 0.1% jarima qo'llaniladi.
+
+4. TOMONLARNING IMZOLARI
+
+QARZ BERUVCHI:                  QARZ OLUVCHI:
+${d.b_ism || '________________'}    ${d.i_ism || '________________'}
+Imzo: ___________               Imzo: ___________`
+      },
+
+      hisob: {
+        title: "Hisob-faktura",
+        subtitle: "Rasmiy to'lov hujjati",
+        fields: [
+          { section: "Hisob-faktura" },
+          { id: "raqam", label: "Raqam", type: "text", placeholder: "№ HF-001" },
+          { id: "sana", label: "Sana", type: "date" },
+          { section: "Sotuvchi (xizmat ko'rsatuvchi)" },
+          { id: "b_ism", label: "Kompaniya/Ism", type: "text", placeholder: "\"Yangi Davr\" MCHJ" },
+          { id: "b_stir", label: "STIR/Passport", type: "text", placeholder: "123456789" },
+          { id: "b_bank", label: "Bank hisob raqami", type: "text", placeholder: "2020 8000 xxxx xxxx" },
+          { section: "Xaridor (to'lovchi)" },
+          { id: "i_ism", label: "Kompaniya/Ism", type: "text", placeholder: "Mijoz kompaniyasi" },
+          { id: "i_stir", label: "STIR/Passport", type: "text", placeholder: "987654321" },
+          { section: "Tovarlar/Xizmatlar" },
+          { id: "xizmat1", label: "Xizmat/Tovar nomi", type: "text", placeholder: "Veb-sayt yaratish" },
+          { id: "summa1", label: "Narxi (so'm)", type: "text", placeholder: "5 000 000" },
+          { id: "qqs", label: "QQS (ixtiyoriy)", type: "text", placeholder: "12% yoki 0" },
+        ],
+        template: (d) => {
+          const summa = parseInt((d.summa1 || '0').replace(/\s/g,'')) || 0;
+          const qqs = parseFloat(d.qqs) || 0;
+          const qqsSumma = Math.round(summa * qqs / 100);
+          const jami = summa + qqsSumma;
+          return `HISOB-FAKTURA
+
+${d.raqam || '№ HF-001'}                               Sana: ${formatDate(d.sana)}
+
+SOTUVCHI:
+${d.b_ism || '________________________'}
+STIR: ${d.b_stir || '________________________'}
+Bank h/r: ${d.b_bank || '________________________'}
+
+XARIDOR:
+${d.i_ism || '________________________'}
+STIR: ${d.i_stir || '________________________'}
+
+─────────────────────────────────────────────────
+№  Nomi                    Narxi
+─────────────────────────────────────────────────
+1. ${d.xizmat1 || '________________________'}
+                           ${d.summa1 || '0'} so'm
+─────────────────────────────────────────────────
+   Jami (QQSsiz):          ${d.summa1 || '0'} so'm
+   QQS (${d.qqs || '0'}%):          ${qqsSumma.toLocaleString()} so'm
+   JAMI TO'LOV:            ${jami.toLocaleString()} so'm
+─────────────────────────────────────────────────
+
+To'lov muddati: 5 ish kuni ichida
+
+SOTUVCHI:
+${d.b_ism || '________________________'}
+Imzo: ___________                M.O.`
+        }
+      },
+
+      mehnat: {
+        title: "Mehnat shartnomasi",
+        subtitle: "Ish beruvchi va xodim o'rtasidagi shartnoma",
+        fields: [
+          { section: "Shartnoma" },
+          { id: "sana", label: "Sana", type: "date" },
+          { id: "raqam", label: "Raqam", type: "text", placeholder: "№ 01-M" },
+          { section: "Ish beruvchi" },
+          { id: "comp_nomi", label: "Kompaniya nomi", type: "text", placeholder: "\"Yangi Davr\" MCHJ" },
+          { id: "dir_ism", label: "Direktor ismi", type: "text", placeholder: "Karimov Akbar Saidovich" },
+          { section: "Xodim" },
+          { id: "x_ism", label: "Xodim to'liq ismi", type: "text", placeholder: "Rahimov Bobur Umarovich" },
+          { id: "x_passport", label: "Passport", type: "text", placeholder: "AB 7654321" },
+          { id: "x_manzil", label: "Manzil", type: "text", placeholder: "Toshkent sh., ..." },
+          { section: "Ish shartlari" },
+          { id: "lavozim", label: "Lavozim", type: "text", placeholder: "Dasturchi / Menejer / Buxgalter" },
+          { id: "boshlash", label: "Ish boshlash sanasi", type: "date" },
+          { id: "ish_vaqti", label: "Ish vaqti", type: "text", placeholder: "09:00 — 18:00, dush-juma" },
+          { id: "maosh", label: "Oylik maosh (so'm)", type: "text", placeholder: "5 000 000" },
+          { id: "sinov", label: "Sinov muddati", type: "text", placeholder: "3 oy (ixtiyoriy)" },
+        ],
+        template: (d) => `MEHNAT SHARTNOMASI
+
+№ ${d.raqam || '___'}                                   ${formatDate(d.sana)}
+
+ISH BERUVCHI: ${d.comp_nomi || '________________________'}, direktor ${d.dir_ism || '________________________'}, bundan buyon "Ish beruvchi".
+
+XODIM: ${d.x_ism || '________________________'}, passport: ${d.x_passport || '__ _______'}, manzil: ${d.x_manzil || '________________________'}, bundan buyon "Xodim".
+
+1. SHARTNOMA PREDMETI
+
+1.1. Xodim quyidagi lavozimda ishlashga qabul qilinadi: ${d.lavozim || '________________________'}.
+1.2. Ish boshlash sanasi: ${formatDate(d.boshlash)}.
+${d.sinov ? `1.3. Sinov muddati: ${d.sinov}.` : ''}
+
+2. ISH VAQTI
+
+2.1. Ish vaqti: ${d.ish_vaqti || '09:00 — 18:00'}.
+
+3. MEHNAT HAQI
+
+3.1. Oylik maosh: ${d.maosh || '___'} (${sumWords(d.maosh)}) so'm.
+3.2. Maosh har oyning 25-sanasida to'lanadi.
+
+4. XODIM MAJBURIYATLARI
+
+4.1. Belgilangan ish vaqtida ishlash.
+4.2. Ichki tartib qoidalariga rioya qilish.
+4.3. Maxfiy ma'lumotlarni oshkor qilmaslik.
+
+5. ISH BERUVCHI MAJBURIYATLARI
+
+5.1. Maoshni o'z vaqtida to'lash.
+5.2. Xavfsiz ish sharoitini ta'minlash.
+5.3. Yillik ta'til (28 kalendar kun) berish.
+
+6. SHARTNOMANI BEKOR QILISH
+
+6.1. Ikki haftalik ogohlantirish bilan har qaysi tomon shartnomani bekor qilishi mumkin.
+
+ISH BERUVCHI:                   XODIM:
+${d.dir_ism || '________________'}    ${d.x_ism || '________________'}
+Imzo: ___________               Imzo: ___________`
+      }
+    };
+
+    // ===================================================
+    // YORDAMCHI FUNKSIYALAR
+    // ===================================================
+    function formatDate(dateStr) {
+      if (!dateStr) return '___.___.______';
+      const d = new Date(dateStr);
+      return d.toLocaleDateString('uz-UZ', { day: '2-digit', month: '2-digit', year: 'numeric' });
+    }
+
+    function sumWords(numStr) {
+      if (!numStr) return '___';
+      const clean = numStr.replace(/\s/g, '');
+      if (!clean || isNaN(clean)) return numStr;
+      const n = parseInt(clean);
+      if (n >= 1000000000) return (n/1000000000).toFixed(1) + ' milliard';
+      if (n >= 1000000) return (n/1000000).toFixed(1) + ' million';
+      if (n >= 1000) return (n/1000).toFixed(0) + ' ming';
+      return n.toString();
+    }
+
+    // ===================================================
+    // SEARCH & FILTER
+    // ===================================================
+    let currentFilter = 'hammasi';
+
+    function setFilter(cat, btn) {
+      currentFilter = cat;
+      document.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      filterDocs();
+    }
+
+    function filterDocs() {
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.doc-card');
+      let visible = 0;
+
+      cards.forEach(card => {
+        const cat = card.dataset.cat;
+        const text = card.innerText.toLowerCase();
+        const catMatch = currentFilter === 'hammasi' || cat === currentFilter;
+        const searchMatch = !q || text.includes(q);
+        const show = catMatch && searchMatch;
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+
+      document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
+    }
+
+    // ===================================================
+    // MODAL — HUJJAT FORMASI
+    // ===================================================
+    let currentDoc = null;
+    let currentStep = 1;
+    let formData = {};
+
+    function openDoc(docId) {
+      currentDoc = DOCS[docId];
+      currentStep = 1;
+      formData = {};
+      if (!currentDoc) return;
+
+      document.getElementById('modalTitle').textContent = currentDoc.title;
+      document.getElementById('modalSubtitle').textContent = currentDoc.subtitle;
+      renderStep1();
+      updateStepUI();
+
+      document.getElementById('modalOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('modalOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function handleOverlayClick(e) {
+      if (e.target === document.getElementById('modalOverlay')) closeModal();
+    }
+
+    function renderStep1() {
+      let html = '';
+      currentDoc.fields.forEach(f => {
+        if (f.section) {
+          html += `<div class="form-section-title">${f.section}</div>`;
+        } else if (f.type === 'textarea') {
+          html += `<div class="form-group">
+            <label>${f.label}</label>
+            <textarea id="field_${f.id}" placeholder="${f.placeholder || ''}">${formData[f.id] || ''}</textarea>
+          </div>`;
+        } else {
+          html += `<div class="form-group">
+            <label>${f.label}</label>
+            <input type="${f.type || 'text'}" id="field_${f.id}" placeholder="${f.placeholder || ''}" value="${formData[f.id] || ''}" />
+          </div>`;
+        }
+      });
+      document.getElementById('modalBody').innerHTML = html;
+    }
+
+    function renderStep2() {
+      // Ma'lumotlarni yig'ish
+      currentDoc.fields.forEach(f => {
+        if (!f.section) {
+          const el = document.getElementById('field_' + f.id);
+          if (el) formData[f.id] = el.value;
+        }
+      });
+
+      const text = currentDoc.template(formData);
+
+      document.getElementById('modalBody').innerHTML = `
+        <p style="font-size:13px; color:var(--text3); margin-bottom:16px;">
+          📄 Hujjatni ko'rib chiqing. Orqaga qaytib o'zgartirish kiritishingiz mumkin.
+        </p>
+        <div class="preview-box">${escapeHtml(text)}</div>
+      `;
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    function goNext() {
+      if (currentStep === 1) {
+        currentStep = 2;
+        renderStep2();
+        updateStepUI();
+      } else {
+        showToast('✅ Hujjat tayyor! Tez orada PDF yuklab olish qo\'shiladi.', 'success');
+      }
+    }
+
+    function goBack() {
+      if (currentStep === 2) {
+        currentStep = 1;
+        renderStep1();
+        updateStepUI();
+      }
+    }
+
+    function updateStepUI() {
+      const s1 = document.getElementById('step1tab');
+      const s2 = document.getElementById('step2tab');
+      const backBtn = document.getElementById('backBtn');
+      const nextBtn = document.getElementById('nextBtn');
+
+      s1.className = 'modal-step' + (currentStep === 1 ? ' active' : ' done');
+      s2.className = 'modal-step' + (currentStep === 2 ? ' active' : '');
+
+      backBtn.style.visibility = currentStep === 2 ? 'visible' : 'hidden';
+      nextBtn.textContent = currentStep === 1 ? 'Ko\'rib chiqish →' : '✅ Tayyor';
+    }
+
+    // ===================================================
+    // TOAST
+    // ===================================================
+    function showToast(msg, type = 'success') {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.className = 'toast ' + type;
+      void t.offsetWidth;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 4000);
+    }
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  </script>
+</body>
+</html>
