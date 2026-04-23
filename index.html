@@ -726,6 +726,100 @@
       .hero-actions { flex-direction: column; }
       .footer-grid { grid-template-columns: 1fr; }
     }
+
+    /* PROFILE DROPDOWN */
+    .profile-wrapper {
+      position: relative;
+    }
+    .profile-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--cream);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 8px 14px;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--navy);
+      transition: border-color var(--transition), background var(--transition);
+    }
+    .profile-btn:hover { border-color: var(--gold); background: var(--cream2); }
+    .profile-avatar {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .profile-chevron {
+      font-size: 10px;
+      color: var(--text3);
+      transition: transform 0.2s ease;
+    }
+    .profile-wrapper.open .profile-chevron { transform: rotate(180deg); }
+
+    .profile-dropdown {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      min-width: 220px;
+      z-index: 200;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .profile-wrapper.open .profile-dropdown {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+    }
+    .dropdown-header {
+      padding: 16px 18px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .dropdown-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 3px;
+    }
+    .dropdown-email {
+      font-size: 12px;
+      color: var(--text3);
+    }
+    .dropdown-body { padding: 8px; }
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--text2);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-body);
+      text-align: left;
+      transition: background var(--transition), color var(--transition);
+    }
+    .dropdown-item:hover { background: var(--cream); color: var(--navy); }
+    .dropdown-item.danger:hover { background: #fff0f0; color: #e53e3e; }
   </style>
 </head>
 <body>
@@ -743,7 +837,7 @@
         <li><a href="#narxlar">Narxlar</a></li>
         <li><a href="pages/hujjatlar.html">Hujjatlar</a></li>
       </ul>
-      <div class="nav-actions">
+      <div class="nav-actions" id="navActions">
         <button class="btn-ghost" onclick="openModal('login')">Kirish</button>
         <button class="btn-primary" onclick="openModal('register')">Bepul boshlash</button>
       </div>
@@ -758,8 +852,10 @@
     <a href="#qanday">Qanday ishlaydi</a>
     <a href="#narxlar">Narxlar</a>
     <a href="pages/hujjatlar.html">Hujjatlar</a>
-    <button class="btn-ghost" onclick="openModal('login'); closeMobileMenu()">Kirish</button>
-    <button class="btn-primary" onclick="openModal('register'); closeMobileMenu()">Bepul boshlash</button>
+    <div id="mobileAuthButtons">
+      <button class="btn-ghost" onclick="openModal('login'); closeMobileMenu()">Kirish</button>
+      <button class="btn-primary" onclick="openModal('register'); closeMobileMenu()">Bepul boshlash</button>
+    </div>
   </div>
 
   <!-- HERO -->
@@ -1022,9 +1118,9 @@
       <div class="footer-bottom">
         <p>© 2025 LegalEase UZ. Barcha huquqlar himoyalangan.</p>
         <div class="social-links">
-          <a href="#" aria-label="Telegram">TG</a>
-          <a href="#" aria-label="Instagram">IG</a>
-          <a href="#" aria-label="LinkedIn">LI</a>
+          <a href="https://t.me/gayratov_vippp" target="_blank" aria-label="Telegram">TG</a>
+          <a href="https://instagram.com/asom.1o" target="_blank" aria-label="Instagram">IG</a>
+          <a href="https://youtube.com/@legalelase.uz" target="_blank" aria-label="YouTube">YT</a>
         </div>
       </div>
     </div>
@@ -1188,6 +1284,11 @@
         console.warn('Telegram xabari yuborilmadi');
       }
 
+      // Foydalanuvchini saqlash va UI yangilash
+      currentUser = { firstName, lastName, email };
+      localStorage.setItem('legalease_user', JSON.stringify(currentUser));
+      updateAuthUI(currentUser);
+
       // Modal yopish (1.5 soniyadan keyin)
       setTimeout(() => {
         closeModal();
@@ -1216,11 +1317,97 @@
         btn.classList.remove('loading');
         btn.textContent = 'Kirish →';
         showToast('✅ Muvaffaqiyatli kirdingiz!', 'success');
+
+        // Foydalanuvchini saqlash va UI yangilash
+        currentUser = { firstName: email.split('@')[0], lastName: '', email };
+        localStorage.setItem('legalease_user', JSON.stringify(currentUser));
+        updateAuthUI(currentUser);
         setTimeout(closeModal, 1500);
       }, 1200);
     }
 
-    // ----- Navbar scroll -----
+    // ----- AUTH UI yangilash -----
+    let currentUser = null;
+
+    function getInitials(firstName, lastName) {
+      return ((firstName?.[0] || '') + (lastName?.[0] || '')).toUpperCase() || '👤';
+    }
+
+    function updateAuthUI(user) {
+      const navActions = document.getElementById('navActions');
+      const mobileAuth = document.getElementById('mobileAuthButtons');
+
+      if (user) {
+        const initials = getInitials(user.firstName, user.lastName);
+        const fullName = [user.firstName, user.lastName].filter(Boolean).join(' ');
+
+        // Navbar — profile dropdown
+        navActions.innerHTML = `
+          <div class="profile-wrapper" id="profileWrapper">
+            <button class="profile-btn" onclick="toggleDropdown()">
+              <div class="profile-avatar">${initials}</div>
+              <span>${user.firstName}</span>
+              <span class="profile-chevron">▼</span>
+            </button>
+            <div class="profile-dropdown" id="profileDropdown">
+              <div class="dropdown-header">
+                <div class="dropdown-name">${fullName}</div>
+                <div class="dropdown-email">${user.email}</div>
+              </div>
+              <div class="dropdown-body">
+                <button class="dropdown-item danger" onclick="handleLogout()">
+                  🚪 Chiqish
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+
+        // Mobile menu
+        mobileAuth.innerHTML = `
+          <button class="btn-ghost" onclick="handleLogout(); closeMobileMenu()">🚪 Chiqish (${user.firstName})</button>
+        `;
+      } else {
+        // Kirish/Ro'yxatdan o'tish tugmalari
+        navActions.innerHTML = `
+          <button class="btn-ghost" onclick="openModal('login')">Kirish</button>
+          <button class="btn-primary" onclick="openModal('register')">Bepul boshlash</button>
+        `;
+        mobileAuth.innerHTML = `
+          <button class="btn-ghost" onclick="openModal('login'); closeMobileMenu()">Kirish</button>
+          <button class="btn-primary" onclick="openModal('register'); closeMobileMenu()">Bepul boshlash</button>
+        `;
+      }
+    }
+
+    function toggleDropdown() {
+      const wrapper = document.getElementById('profileWrapper');
+      if (wrapper) wrapper.classList.toggle('open');
+    }
+
+    // Dropdown tashqarisiga bosganda yopilsin
+    document.addEventListener('click', (e) => {
+      const wrapper = document.getElementById('profileWrapper');
+      if (wrapper && !wrapper.contains(e.target)) {
+        wrapper.classList.remove('open');
+      }
+    });
+
+    function handleLogout() {
+      currentUser = null;
+      localStorage.removeItem('legalease_user');
+      updateAuthUI(null);
+      showToast('👋 Chiqildi. Ko\'rishguncha!', 'success');
+    }
+
+    // Sahifa yuklanganda — oldingi sessiyani tekshirish
+    (function checkSession() {
+      const saved = localStorage.getItem('legalease_user');
+      if (saved) {
+        currentUser = JSON.parse(saved);
+        updateAuthUI(currentUser);
+      }
+    })();
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 20);
