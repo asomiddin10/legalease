@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LegalEase.uz</title>
+  <title>LegalEase UZ — Onlayn yuridik xizmatlar</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23FFFFFF'/%3E%3Crect x='46' y='20' width='8' height='60' rx='3' fill='%23C9A84C'/%3E%3Cellipse cx='50' cy='78' rx='18' ry='5' fill='%23C9A84C'/%3E%3Cline x1='50' y1='24' x2='20' y2='36' stroke='%23C9A84C' stroke-width='4' stroke-linecap='round'/%3E%3Cline x1='50' y1='24' x2='80' y2='36' stroke='%23C9A84C' stroke-width='4' stroke-linecap='round'/%3E%3Cellipse cx='20' cy='38' rx='12' ry='5' fill='none' stroke='%23C9A84C' stroke-width='3.5'/%3E%3Cellipse cx='80' cy='38' rx='12' ry='5' fill='none' stroke='%23C9A84C' stroke-width='3.5'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -820,6 +821,69 @@
     }
     .dropdown-item:hover { background: var(--cream); color: var(--navy); }
     .dropdown-item.danger:hover { background: #fff0f0; color: #e53e3e; }
+    /* LANGUAGE SWITCHER DROPDOWN */
+    .lang-wrapper {
+      position: relative;
+    }
+    .lang-selected {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--white);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--navy);
+      cursor: pointer;
+      font-family: var(--font-body);
+      transition: border-color var(--transition);
+      white-space: nowrap;
+    }
+    .lang-selected:hover { border-color: var(--gold); }
+    .lang-chevron { font-size: 10px; color: var(--text3); transition: transform 0.2s; }
+    .lang-wrapper.open .lang-chevron { transform: rotate(180deg); }
+
+    .lang-dropdown {
+      position: absolute;
+      top: calc(100% + 6px);
+      right: 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      min-width: 130px;
+      z-index: 300;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(6px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .lang-wrapper.open .lang-dropdown {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+    }
+    .lang-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text2);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-body);
+      text-align: left;
+      transition: background var(--transition), color var(--transition);
+    }
+    .lang-option:hover { background: var(--cream); color: var(--navy); }
+    .lang-option.active { color: var(--gold); font-weight: 600; }
   </style>
 </head>
 <body>
@@ -832,14 +896,25 @@
         <span class="logo-text">LegalEase <span class="logo-uz">UZ</span></span>
       </a>
       <ul class="nav-links">
-        <li><a href="#xizmatlar">Xizmatlar</a></li>
-        <li><a href="#qanday">Qanday ishlaydi</a></li>
-        <li><a href="#narxlar">Narxlar</a></li>
-        <li><a href="pages/hujjatlar.html">Hujjatlar</a></li>
+        <li><a href="#xizmatlar" data-i18n="nav_services"></a></li>
+        <li><a href="#qanday" data-i18n="nav_how"></a></li>
+        <li><a href="#narxlar" data-i18n="nav_prices"></a></li>
+        <li><a href="pages/hujjatlar.html" data-i18n="nav_docs"></a></li>
       </ul>
+      <div class="lang-wrapper" id="langWrapper">
+        <button class="lang-selected" onclick="toggleLangDropdown()" id="langSelected">
+          <span id="langCurrentCode">UZ</span>
+          <span class="lang-chevron">▼</span>
+        </button>
+        <div class="lang-dropdown" id="langDropdown">
+          <button class="lang-option active" id="langOptUz" onclick="setLang('uz')">O'zbek</button>
+          <button class="lang-option" id="langOptRu" onclick="setLang('ru')">Русский</button>
+          <button class="lang-option" id="langOptEn" onclick="setLang('en')">English</button>
+        </div>
+      </div>
       <div class="nav-actions" id="navActions">
-        <button class="btn-ghost" onclick="openModal('login')">Kirish</button>
-        <button class="btn-primary" onclick="openModal('register')">Bepul boshlash</button>
+        <button class="btn-ghost" onclick="openModal('login')" data-i18n="btn_login"></button>
+        <button class="btn-primary" onclick="openModal('register')" data-i18n="btn_start"></button>
       </div>
       <button class="burger" id="burger" aria-label="Menyu">
         <span></span><span></span><span></span>
@@ -848,13 +923,13 @@
   </nav>
 
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#xizmatlar">Xizmatlar</a>
-    <a href="#qanday">Qanday ishlaydi</a>
-    <a href="#narxlar">Narxlar</a>
-    <a href="pages/hujjatlar.html">Hujjatlar</a>
+    <a href="#xizmatlar" data-i18n="nav_services"></a>
+    <a href="#qanday" data-i18n="nav_how"></a>
+    <a href="#narxlar" data-i18n="nav_prices"></a>
+    <a href="pages/hujjatlar.html" data-i18n="nav_docs"></a>
     <div id="mobileAuthButtons">
-      <button class="btn-ghost" onclick="openModal('login'); closeMobileMenu()">Kirish</button>
-      <button class="btn-primary" onclick="openModal('register'); closeMobileMenu()">Bepul boshlash</button>
+      <button class="btn-ghost" onclick="openModal('login'); closeMobileMenu()" data-i18n="btn_login"></button>
+      <button class="btn-primary" onclick="openModal('register'); closeMobileMenu()" data-i18n="btn_start"></button>
     </div>
   </div>
 
@@ -866,25 +941,22 @@
       <div class="hero-grid"></div>
     </div>
     <div class="container">
-      <div class="hero-badge">🇺🇿 O'zbekistondagi #1 onlayn yuridik platforma</div>
+      <div class="hero-badge" data-i18n="hero_badge"></div>
       <h1 class="hero-title">
-        Yuridik hujjatlar —
-        <span class="highlight">15 daqiqada</span>
+        <span data-i18n="hero_title1"></span>
+        <span class="highlight" data-i18n="hero_title2"></span>
       </h1>
-      <p class="hero-sub">
-        Shartnoma, nizom, ishonch xati va boshqa hujjatlarni advokatsiz,
-        arzon va tez tayyorlang. O'zbek qonunchiligiga mos.
-      </p>
+      <p class="hero-sub" data-i18n="hero_sub"></p>
       <div class="hero-actions">
-        <a href="pages/hujjatlar.html" class="btn-primary btn-lg">Hujjat yaratish →</a>
-        <a href="#qanday" class="btn-outline btn-lg">Qanday ishlaydi?</a>
+        <a href="pages/hujjatlar.html" class="btn-primary btn-lg" data-i18n="hero_btn1"></a>
+        <a href="#qanday" class="btn-outline btn-lg" data-i18n="hero_btn2"></a>
       </div>
       <div class="hero-stats">
-        <div class="stat"><span class="stat-num">10,000+</span><span class="stat-label">Hujjat yaratildi</span></div>
+        <div class="stat"><span class="stat-num">10,000+</span><span class="stat-label" data-i18n="stat1"></span></div>
         <div class="stat-divider"></div>
-        <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Faol kompaniya</span></div>
+        <div class="stat"><span class="stat-num">500+</span><span class="stat-label" data-i18n="stat2"></span></div>
         <div class="stat-divider"></div>
-        <div class="stat"><span class="stat-num">4.9★</span><span class="stat-label">Mijoz bahosi</span></div>
+        <div class="stat"><span class="stat-num">4.9★</span><span class="stat-label" data-i18n="stat3"></span></div>
       </div>
     </div>
   </section>
@@ -893,9 +965,9 @@
   <section class="section" id="xizmatlar">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Xizmatlar</span>
-        <h2 class="section-title">Sizga nima kerak?</h2>
-        <p class="section-sub">Eng ko'p so'raladigan yuridik xizmatlar — bir joyda</p>
+        <span class="section-tag" data-i18n="tag_services"></span>
+        <h2 class="section-title" data-i18n="sec_services_title"></h2>
+        <p class="section-sub" data-i18n="sec_services_sub"></p>
       </div>
       <div class="services-grid">
         <a href="pages/hujjatlar.html" class="service-card">
@@ -943,27 +1015,27 @@
   <section class="section section-dark" id="qanday">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag light">Jarayon</span>
-        <h2 class="section-title light">3 qadamda tayyor</h2>
-        <p class="section-sub light">Hech qanday yuridik bilim talab etilmaydi</p>
+        <span class="section-tag light" data-i18n="tag_process"></span>
+        <h2 class="section-title light" data-i18n="sec_how_title"></h2>
+        <p class="section-sub light" data-i18n="sec_how_sub"></p>
       </div>
       <div class="steps-grid">
         <div class="step-card">
           <div class="step-num">01</div>
-          <h3>Hujjat turini tanlang</h3>
-          <p>100+ shablon ichidan kerakligini toping. AI sizga eng mos variantni taklif qiladi.</p>
+          <h3 data-i18n="step1_title"></h3>
+          <p data-i18n="step1_text"></p>
         </div>
         <div class="step-arrow">→</div>
         <div class="step-card">
           <div class="step-num">02</div>
-          <h3>Ma'lumotlarni kiriting</h3>
-          <p>Oddiy shakl to'ldiring. Tushunarsiz savollar uchun AI yordamchi doim yonida.</p>
+          <h3 data-i18n="step2_title"></h3>
+          <p data-i18n="step2_text"></p>
         </div>
         <div class="step-arrow">→</div>
         <div class="step-card">
           <div class="step-num">03</div>
-          <h3>Yuklab oling yoki imzolang</h3>
-          <p>Tayyor hujjatni PDF formatida yuklab oling yoki elektron imzo bilan tasdiqlang.</p>
+          <h3 data-i18n="step3_title"></h3>
+          <p data-i18n="step3_text"></p>
         </div>
       </div>
     </div>
@@ -973,8 +1045,8 @@
   <section class="section" id="mijozlar">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Mijozlar</span>
-        <h2 class="section-title">Ular allaqachon ishlatmoqda</h2>
+        <span class="section-tag" data-i18n="tag_clients"></span>
+        <h2 class="section-title" data-i18n="sec_clients_title"></h2>
       </div>
       <div class="reviews-grid">
         <div class="review-card">
@@ -1018,15 +1090,15 @@
   <section class="section section-alt" id="narxlar">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Narxlar</span>
-        <h2 class="section-title">Oddiy va shaffof narxlar</h2>
-        <p class="section-sub">Yashirin to'lovlar yo'q</p>
+        <span class="section-tag" data-i18n="tag_prices"></span>
+        <h2 class="section-title" data-i18n="sec_prices_title"></h2>
+        <p class="section-sub" data-i18n="sec_prices_sub"></p>
       </div>
       <div class="pricing-grid">
         <div class="pricing-card">
-          <h3 class="plan-name">Boshlang'ich</h3>
-          <div class="plan-price">Bepul</div>
-          <p class="plan-desc">Individual foydalanuvchilar uchun</p>
+          <h3 class="plan-name" data-i18n="plan1_name"></h3>
+          <div class="plan-price" data-i18n="plan1_price"></div>
+          <p class="plan-desc" data-i18n="plan1_desc"></p>
           <ul class="plan-features">
             <li>✓ 3 ta hujjat/oy</li>
             <li>✓ AI yordamchi</li>
@@ -1037,10 +1109,10 @@
           <button class="btn-outline btn-full" onclick="openModal('register')">Bepul boshlash</button>
         </div>
         <div class="pricing-card featured">
-          <div class="plan-badge">Eng mashhur</div>
-          <h3 class="plan-name">Professional</h3>
+          <div class="plan-badge" data-i18n="plan_popular"></div>
+          <h3 class="plan-name" data-i18n="plan2_name"></h3>
           <div class="plan-price">$29 <span>/oy</span></div>
-          <p class="plan-desc">Kichik biznes uchun</p>
+          <p class="plan-desc" data-i18n="plan2_desc"></p>
           <ul class="plan-features">
             <li>✓ Cheksiz hujjat</li>
             <li>✓ AI yordamchi</li>
@@ -1051,9 +1123,9 @@
           <button class="btn-primary btn-full" onclick="openModal('register')">Boshlash</button>
         </div>
         <div class="pricing-card">
-          <h3 class="plan-name">Korporativ</h3>
+          <h3 class="plan-name" data-i18n="plan3_name"></h3>
           <div class="plan-price">$99 <span>/oy</span></div>
-          <p class="plan-desc">Kompaniyalar uchun</p>
+          <p class="plan-desc" data-i18n="plan3_desc"></p>
           <ul class="plan-features">
             <li>✓ Cheksiz hujjat</li>
             <li>✓ 5 ta foydalanuvchi</li>
@@ -1070,9 +1142,9 @@
   <!-- CTA -->
   <section class="cta-section">
     <div class="container">
-      <h2>Bugun boshlang — bepul</h2>
-      <p>Birinchi hujjatingizni bepul yarating. Kredit karta talab etilmaydi.</p>
-      <button class="btn-primary btn-lg btn-white" onclick="openModal('register')">Hozir ro'yxatdan o'ting →</button>
+      <h2 data-i18n="cta_title"></h2>
+      <p data-i18n="cta_sub"></p>
+      <button class="btn-primary btn-lg btn-white" onclick="openModal('register')" data-i18n="cta_btn"></button>
     </div>
   </section>
 
@@ -1085,10 +1157,10 @@
             <span class="logo-icon">⚖</span>
             <span class="logo-text">LegalEase <span class="logo-uz">UZ</span></span>
           </a>
-          <p>O'zbekistondagi birinchi onlayn yuridik xizmatlar platformasi.</p>
+          <p data-i18n="footer_desc"></p>
         </div>
         <div class="footer-col">
-          <h4>Xizmatlar</h4>
+          <h4 data-i18n="footer_col1"></h4>
           <ul>
             <li><a href="pages/hujjatlar.html">Hujjat generatori</a></li>
             <li><a href="#">Kompaniya ro'yxati</a></li>
@@ -1097,7 +1169,7 @@
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Kompaniya</h4>
+          <h4 data-i18n="footer_col2"></h4>
           <ul>
             <li><a href="#">Biz haqimizda</a></li>
             <li><a href="#">Blog</a></li>
@@ -1106,7 +1178,7 @@
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Qo'llab-quvvatlash</h4>
+          <h4 data-i18n="footer_col3"></h4>
           <ul>
             <li><a href="#">FAQ</a></li>
             <li><a href="#">Maxfiylik siyosati</a></li>
@@ -1116,7 +1188,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2025 LegalEase UZ. Barcha huquqlar himoyalangan.</p>
+        <p data-i18n="footer_copy"></p>
         <div class="social-links">
           <a href="https://t.me/gayratov_vippp" target="_blank" aria-label="Telegram">TG</a>
           <a href="https://instagram.com/asom.1o" target="_blank" aria-label="Instagram">IG</a>
@@ -1205,6 +1277,144 @@
   </div>
 
   <script>
+    // ============================================================
+    //  TIL ALMASHTRISH TIZIMI (UZ / RU / EN)
+    // ============================================================
+    const TRANSLATIONS = {
+      uz: {
+        nav_services: 'Xizmatlar', nav_how: 'Qanday ishlaydi', nav_prices: 'Narxlar', nav_docs: 'Hujjatlar',
+        btn_login: 'Kirish', btn_start: 'Bepul boshlash', btn_logout: 'Chiqish',
+        hero_badge: '🇺🇿 O\'zbekistondagi #1 onlayn yuridik platforma',
+        hero_title1: 'Yuridik hujjatlar —', hero_title2: '15 daqiqada',
+        hero_sub: 'Shartnoma, nizom, ishonch xati va boshqa hujjatlarni advokatsiz, arzon va tez tayyorlang. O\'zbek qonunchiligiga mos.',
+        hero_btn1: 'Hujjat yaratish →', hero_btn2: 'Qanday ishlaydi?',
+        stat1: 'Hujjat yaratildi', stat2: 'Faol kompaniya', stat3: 'Mijoz bahosi',
+        tag_services: 'Xizmatlar', sec_services_title: 'Sizga nima kerak?', sec_services_sub: 'Eng ko\'p so\'raladigan yuridik xizmatlar — bir joyda',
+        tag_process: 'Jarayon', sec_how_title: '3 qadamda tayyor', sec_how_sub: 'Hech qanday yuridik bilim talab etilmaydi',
+        step1_title: 'Hujjat turini tanlang', step1_text: '100+ shablon ichidan kerakligini toping. AI sizga eng mos variantni taklif qiladi.',
+        step2_title: 'Ma\'lumotlarni kiriting', step2_text: 'Oddiy shakl to\'ldiring. Tushunarsiz savollar uchun AI yordamchi doim yonida.',
+        step3_title: 'Yuklab oling yoki imzolang', step3_text: 'Tayyor hujjatni PDF formatida yuklab oling yoki elektron imzo bilan tasdiqlang.',
+        tag_clients: 'Mijozlar', sec_clients_title: 'Ular allaqachon ishlatmoqda',
+        tag_prices: 'Narxlar', sec_prices_title: 'Oddiy va shaffof narxlar', sec_prices_sub: 'Yashirin to\'lovlar yo\'q',
+        plan1_name: 'Boshlang\'ich', plan1_price: 'Bepul', plan1_desc: 'Individual foydalanuvchilar uchun',
+        plan2_name: 'Professional', plan2_desc: 'Kichik biznes uchun',
+        plan3_name: 'Korporativ', plan3_desc: 'Kompaniyalar uchun',
+        plan_popular: 'Eng mashhur', btn_free_start: 'Bepul boshlash', btn_get_start: 'Boshlash',
+        cta_title: 'Bugun boshlang — bepul', cta_sub: 'Birinchi hujjatingizni bepul yarating. Kredit karta talab etilmaydi.', cta_btn: 'Hozir ro\'yxatdan o\'ting →',
+        footer_desc: 'O\'zbekistondagi birinchi onlayn yuridik xizmatlar platformasi.',
+        footer_col1: 'Xizmatlar', footer_col2: 'Kompaniya', footer_col3: 'Qo\'llab-quvvatlash',
+        footer_copy: '© 2025 LegalEase UZ. Barcha huquqlar himoyalangan.',
+        tab_login: 'Kirish', tab_register: 'Ro\'yxatdan o\'tish',
+      },
+      ru: {
+        nav_services: 'Услуги', nav_how: 'Как это работает', nav_prices: 'Цены', nav_docs: 'Документы',
+        btn_login: 'Войти', btn_start: 'Начать бесплатно', btn_logout: 'Выйти',
+        hero_badge: '🇺🇿 Юридическая платформа №1 в Узбекистане',
+        hero_title1: 'Юридические документы —', hero_title2: 'за 15 минут',
+        hero_sub: 'Составляйте договоры, уставы, доверенности и другие документы без адвоката — быстро и недорого.',
+        hero_btn1: 'Создать документ →', hero_btn2: 'Как это работает?',
+        stat1: 'Документов создано', stat2: 'Активных компаний', stat3: 'Оценка клиентов',
+        tag_services: 'Услуги', sec_services_title: 'Что вам нужно?', sec_services_sub: 'Самые популярные юридические услуги — в одном месте',
+        tag_process: 'Процесс', sec_how_title: 'Готово за 3 шага', sec_how_sub: 'Не требуется юридических знаний',
+        step1_title: 'Выберите тип документа', step1_text: 'Найдите нужный из 100+ шаблонов. ИИ предложит подходящий вариант.',
+        step2_title: 'Введите данные', step2_text: 'Заполните простую форму. ИИ-помощник всегда рядом.',
+        step3_title: 'Скачайте или подпишите', step3_text: 'Скачайте готовый документ в PDF или подтвердите электронной подписью.',
+        tag_clients: 'Клиенты', sec_clients_title: 'Они уже используют',
+        tag_prices: 'Цены', sec_prices_title: 'Простые и прозрачные цены', sec_prices_sub: 'Никаких скрытых платежей',
+        plan1_name: 'Базовый', plan1_price: 'Бесплатно', plan1_desc: 'Для частных лиц',
+        plan2_name: 'Профессиональный', plan2_desc: 'Для малого бизнеса',
+        plan3_name: 'Корпоративный', plan3_desc: 'Для компаний',
+        plan_popular: 'Популярный', btn_free_start: 'Начать бесплатно', btn_get_start: 'Начать',
+        cta_title: 'Начните сегодня — бесплатно', cta_sub: 'Создайте первый документ бесплатно. Кредитная карта не требуется.', cta_btn: 'Зарегистрироваться →',
+        footer_desc: 'Первая онлайн-платформа юридических услуг в Узбекистане.',
+        footer_col1: 'Услуги', footer_col2: 'Компания', footer_col3: 'Поддержка',
+        footer_copy: '© 2025 LegalEase UZ. Все права защищены.',
+        tab_login: 'Войти', tab_register: 'Регистрация',
+      },
+      en: {
+        nav_services: 'Services', nav_how: 'How it works', nav_prices: 'Pricing', nav_docs: 'Documents',
+        btn_login: 'Log in', btn_start: 'Start free', btn_logout: 'Log out',
+        hero_badge: '🇺🇿 Uzbekistan\'s #1 online legal platform',
+        hero_title1: 'Legal documents —', hero_title2: 'in 15 minutes',
+        hero_sub: 'Create contracts, charters, powers of attorney and more — without a lawyer, fast and affordable.',
+        hero_btn1: 'Create document →', hero_btn2: 'How it works?',
+        stat1: 'Documents created', stat2: 'Active companies', stat3: 'Client rating',
+        tag_services: 'Services', sec_services_title: 'What do you need?', sec_services_sub: 'The most requested legal services — all in one place',
+        tag_process: 'Process', sec_how_title: 'Ready in 3 steps', sec_how_sub: 'No legal knowledge required',
+        step1_title: 'Choose document type', step1_text: 'Find what you need from 100+ templates. AI suggests the best option.',
+        step2_title: 'Enter your details', step2_text: 'Fill in a simple form. The AI assistant is always there to help.',
+        step3_title: 'Download or sign', step3_text: 'Download the ready document in PDF or confirm with an electronic signature.',
+        tag_clients: 'Clients', sec_clients_title: 'They\'re already using it',
+        tag_prices: 'Pricing', sec_prices_title: 'Simple & transparent pricing', sec_prices_sub: 'No hidden fees',
+        plan1_name: 'Starter', plan1_price: 'Free', plan1_desc: 'For individuals',
+        plan2_name: 'Professional', plan2_desc: 'For small businesses',
+        plan3_name: 'Corporate', plan3_desc: 'For companies',
+        plan_popular: 'Most popular', btn_free_start: 'Start free', btn_get_start: 'Get started',
+        cta_title: 'Start today — free', cta_sub: 'Create your first document for free. No credit card required.', cta_btn: 'Register now →',
+        footer_desc: 'Uzbekistan\'s first online legal services platform.',
+        footer_col1: 'Services', footer_col2: 'Company', footer_col3: 'Support',
+        footer_copy: '© 2025 LegalEase UZ. All rights reserved.',
+        tab_login: 'Log in', tab_register: 'Sign up',
+      }
+    };
+
+    let currentLang = localStorage.getItem('legalease_lang') || 'uz';
+
+    function t(key) {
+      return (TRANSLATIONS[currentLang] && TRANSLATIONS[currentLang][key]) || TRANSLATIONS['uz'][key] || key;
+    }
+
+    function applyTranslations() {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        el.textContent = t(key);
+      });
+      // Modal tablarni ham yangilash
+      const tl = document.getElementById('tabLogin');
+      const tr = document.getElementById('tabRegister');
+      if (tl) tl.textContent = t('tab_login');
+      if (tr) tr.textContent = t('tab_register');
+    }
+
+    function toggleLangDropdown() {
+      document.getElementById('langWrapper').classList.toggle('open');
+    }
+
+    // Tashqariga bosganda yopilsin
+    document.addEventListener('click', (e) => {
+      const lw = document.getElementById('langWrapper');
+      if (lw && !lw.contains(e.target)) lw.classList.remove('open');
+    });
+
+    const LANG_META = {
+      uz: { code: 'UZ' },
+      ru: { code: 'RU' },
+      en: { code: 'EN' },
+    };
+
+    function setLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('legalease_lang', lang);
+      document.getElementById('langCurrentCode').textContent = LANG_META[lang].code;
+      ['uz','ru','en'].forEach(l => {
+        const el = document.getElementById('langOpt' + l.charAt(0).toUpperCase() + l.slice(1));
+        if (el) el.classList.toggle('active', l === lang);
+      });
+      document.getElementById('langWrapper').classList.remove('open');
+      applyTranslations();
+      if (currentUser) updateAuthUI(currentUser);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('langCurrentCode').textContent = LANG_META[currentLang].code;
+      ['uz','ru','en'].forEach(l => {
+        const el = document.getElementById('langOpt' + l.charAt(0).toUpperCase() + l.slice(1));
+        if (el) el.classList.toggle('active', l === currentLang);
+      });
+      applyTranslations();
+    });
+    // ============================================================
+
     // ============================================================
     //  TELEGRAM BOT SOZLAMALARI
     // ============================================================
