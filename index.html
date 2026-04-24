@@ -44,55 +44,29 @@
     ul { list-style: none; }
     img { max-width: 100%; }
 
-    .container {
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
 
     .btn-primary {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--navy);
-      font-family: var(--font-body);
-      font-weight: 500;
-      font-size: 15px;
-      padding: 12px 24px;
-      border-radius: var(--radius);
-      border: none;
-      cursor: pointer;
+      display: inline-block; background: var(--gold); color: var(--navy);
+      font-family: var(--font-body); font-weight: 500; font-size: 15px;
+      padding: 12px 24px; border-radius: var(--radius); border: none; cursor: pointer;
       transition: background var(--transition), transform var(--transition);
     }
     .btn-primary:hover { background: var(--gold2); transform: translateY(-1px); }
-
     .btn-ghost {
-      display: inline-block;
-      color: var(--text2);
-      font-size: 15px;
-      font-weight: 400;
-      padding: 10px 16px;
-      border-radius: var(--radius);
+      display: inline-block; color: var(--text2); font-size: 15px; font-weight: 400;
+      padding: 10px 16px; border-radius: var(--radius);
       transition: color var(--transition), background var(--transition);
-      background: none;
-      border: none;
-      cursor: pointer;
+      background: none; border: none; cursor: pointer;
     }
     .btn-ghost:hover { color: var(--navy); background: var(--cream); }
-
     .btn-outline {
-      display: inline-block;
-      border: 1.5px solid var(--navy);
-      color: var(--navy);
-      font-size: 15px;
-      font-weight: 500;
-      padding: 11px 24px;
-      border-radius: var(--radius);
+      display: inline-block; border: 1.5px solid var(--navy); color: var(--navy);
+      font-size: 15px; font-weight: 500; padding: 11px 24px; border-radius: var(--radius);
       transition: background var(--transition), color var(--transition);
-      background: none;
-      cursor: pointer;
+      background: none; cursor: pointer;
     }
     .btn-outline:hover { background: var(--navy); color: var(--white); }
-
     .btn-lg { padding: 15px 32px; font-size: 16px; }
     .btn-full { display: block; text-align: center; width: 100%; }
     .btn-white { background: var(--white); color: var(--navy); }
@@ -100,349 +74,157 @@
 
     /* NAVBAR */
     .navbar {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      transition: box-shadow var(--transition);
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); transition: box-shadow var(--transition);
     }
     .navbar.scrolled { box-shadow: var(--shadow); }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      height: 68px;
-      gap: 32px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-family: var(--font-display);
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--navy);
-    }
+    .nav-inner { display: flex; align-items: center; height: 68px; gap: 32px; }
+    .logo { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--navy); }
     .logo-icon { font-size: 22px; }
     .logo-uz { color: var(--gold); }
-
-    .nav-links {
-      display: flex;
-      gap: 4px;
-      flex: 1;
-    }
-    .nav-links a {
-      font-size: 14px;
-      color: var(--text2);
-      padding: 8px 14px;
-      border-radius: 8px;
-      font-weight: 400;
-      transition: color var(--transition), background var(--transition);
-    }
+    .nav-links { display: flex; gap: 4px; flex: 1; }
+    .nav-links a { font-size: 14px; color: var(--text2); padding: 8px 14px; border-radius: 8px; font-weight: 400; transition: color var(--transition), background var(--transition); }
     .nav-links a:hover { color: var(--navy); background: var(--cream); }
-
     .nav-actions { display: flex; align-items: center; gap: 8px; }
-
-    .burger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 4px;
-      margin-left: auto;
-    }
-    .burger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--navy);
-      border-radius: 2px;
-      transition: transform 0.25s, opacity 0.25s;
-    }
-
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      gap: 4px;
-      padding: 16px 24px 20px;
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      position: fixed;
-      top: 68px; left: 0; right: 0;
-      z-index: 99;
-    }
-    .mobile-menu a, .mobile-menu button {
-      font-size: 15px;
-      color: var(--text2);
-      padding: 10px 0;
-      border-bottom: 1px solid var(--border);
-      background: none;
-      border-left: none;
-      border-right: none;
-      border-top: none;
-      cursor: pointer;
-      text-align: left;
-      font-family: var(--font-body);
-    }
+    .burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; margin-left: auto; }
+    .burger span { display: block; width: 24px; height: 2px; background: var(--navy); border-radius: 2px; transition: transform 0.25s, opacity 0.25s; }
+    .mobile-menu { display: none; flex-direction: column; gap: 4px; padding: 16px 24px 20px; background: var(--white); border-bottom: 1px solid var(--border); position: fixed; top: 68px; left: 0; right: 0; z-index: 99; }
+    .mobile-menu a, .mobile-menu button { font-size: 15px; color: var(--text2); padding: 10px 0; border-bottom: 1px solid var(--border); background: none; border-left: none; border-right: none; border-top: none; cursor: pointer; text-align: left; font-family: var(--font-body); }
     .mobile-menu.open { display: flex; }
 
     /* HERO */
-    .hero {
-      padding: 140px 0 100px;
-      position: relative;
-      overflow: hidden;
-      background: var(--cream);
-    }
+    .hero { padding: 140px 0 100px; position: relative; overflow: hidden; background: var(--cream); }
     .hero-bg { position: absolute; inset: 0; pointer-events: none; }
     .hero-circle { position: absolute; border-radius: 50%; }
-    .hero-circle.c1 {
-      width: 600px; height: 600px;
-      top: -200px; right: -200px;
-      background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%);
-    }
-    .hero-circle.c2 {
-      width: 400px; height: 400px;
-      bottom: -150px; left: -100px;
-      background: radial-gradient(circle, rgba(13,27,42,0.07) 0%, transparent 70%);
-    }
-    .hero-grid {
-      position: absolute;
-      inset: 0;
-      background-image: linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
-      background-size: 48px 48px;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      background: var(--white);
-      border: 1px solid var(--border);
-      color: var(--text2);
-      font-size: 13px;
-      padding: 6px 16px;
-      border-radius: 100px;
-      margin-bottom: 24px;
-      box-shadow: var(--shadow);
-      animation: fadeUp 0.6s ease both;
-    }
-
-    .hero-title {
-      font-family: var(--font-display);
-      font-size: clamp(38px, 6vw, 66px);
-      font-weight: 700;
-      color: var(--navy);
-      line-height: 1.15;
-      margin-bottom: 20px;
-      max-width: 700px;
-      animation: fadeUp 0.7s 0.1s ease both;
-    }
-    .highlight {
-      color: var(--gold);
-      position: relative;
-    }
-    .highlight::after {
-      content: '';
-      position: absolute;
-      bottom: 2px; left: 0; right: 0;
-      height: 3px;
-      background: var(--gold);
-      opacity: 0.35;
-      border-radius: 2px;
-    }
-
-    .hero-sub {
-      font-size: 18px;
-      color: var(--text2);
-      max-width: 540px;
-      margin-bottom: 36px;
-      font-weight: 300;
-      line-height: 1.7;
-      animation: fadeUp 0.7s 0.2s ease both;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 56px;
-      animation: fadeUp 0.7s 0.3s ease both;
-    }
-
-    .hero-stats {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      flex-wrap: wrap;
-      animation: fadeUp 0.7s 0.4s ease both;
-    }
+    .hero-circle.c1 { width: 600px; height: 600px; top: -200px; right: -200px; background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%); }
+    .hero-circle.c2 { width: 400px; height: 400px; bottom: -150px; left: -100px; background: radial-gradient(circle, rgba(13,27,42,0.07) 0%, transparent 70%); }
+    .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px); background-size: 48px 48px; }
+    .hero-badge { display: inline-block; background: var(--white); border: 1px solid var(--border); color: var(--text2); font-size: 13px; padding: 6px 16px; border-radius: 100px; margin-bottom: 24px; box-shadow: var(--shadow); animation: fadeUp 0.6s ease both; }
+    .hero-title { font-family: var(--font-display); font-size: clamp(38px, 6vw, 66px); font-weight: 700; color: var(--navy); line-height: 1.15; margin-bottom: 20px; max-width: 700px; animation: fadeUp 0.7s 0.1s ease both; }
+    .highlight { color: var(--gold); position: relative; }
+    .highlight::after { content: ''; position: absolute; bottom: 2px; left: 0; right: 0; height: 3px; background: var(--gold); opacity: 0.35; border-radius: 2px; }
+    .hero-sub { font-size: 18px; color: var(--text2); max-width: 540px; margin-bottom: 36px; font-weight: 300; line-height: 1.7; animation: fadeUp 0.7s 0.2s ease both; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 56px; animation: fadeUp 0.7s 0.3s ease both; }
+    .hero-stats { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; animation: fadeUp 0.7s 0.4s ease both; }
     .stat { display: flex; flex-direction: column; }
-    .stat-num {
-      font-family: var(--font-display);
-      font-size: 26px;
-      font-weight: 700;
-      color: var(--navy);
-    }
+    .stat-num { font-family: var(--font-display); font-size: 26px; font-weight: 700; color: var(--navy); }
     .stat-label { font-size: 13px; color: var(--text3); }
     .stat-divider { width: 1px; height: 40px; background: var(--border); }
 
     .section { padding: 96px 0; }
     .section-alt { background: var(--cream); }
     .section-dark { background: var(--navy); color: var(--white); }
-
     .section-header { text-align: center; margin-bottom: 56px; }
-    .section-tag {
-      display: inline-block;
-      background: rgba(201,168,76,0.15);
-      color: var(--gold);
-      font-size: 12px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      padding: 5px 14px;
-      border-radius: 100px;
-      margin-bottom: 14px;
-    }
+    .section-tag { display: inline-block; background: rgba(201,168,76,0.15); color: var(--gold); font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; padding: 5px 14px; border-radius: 100px; margin-bottom: 14px; }
     .section-tag.light { background: rgba(201,168,76,0.2); color: var(--gold2); }
-    .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(28px, 4vw, 42px);
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 14px;
-    }
+    .section-title { font-family: var(--font-display); font-size: clamp(28px, 4vw, 42px); font-weight: 700; color: var(--navy); margin-bottom: 14px; }
     .section-title.light { color: var(--white); }
     .section-sub { font-size: 17px; color: var(--text2); font-weight: 300; }
     .section-sub.light { color: rgba(255,255,255,0.6); }
 
+    /* SERVICES */
     .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .service-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 28px;
-      position: relative;
-      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
-      display: block;
-      cursor: pointer;
-    }
+    .service-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; position: relative; transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition); display: block; cursor: pointer; }
     .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--gold); }
     .service-card.featured { border-color: var(--gold); background: linear-gradient(135deg, #fff 80%, rgba(201,168,76,0.06)); }
-    .service-badge {
-      position: absolute;
-      top: 16px; right: 16px;
-      background: var(--gold);
-      color: var(--navy);
-      font-size: 11px;
-      font-weight: 500;
-      padding: 4px 10px;
-      border-radius: 100px;
-    }
+    .service-badge { position: absolute; top: 16px; right: 16px; background: var(--gold); color: var(--navy); font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 100px; }
     .service-icon { font-size: 32px; margin-bottom: 16px; display: block; }
     .service-card h3 { font-size: 17px; font-weight: 500; color: var(--navy); margin-bottom: 8px; }
     .service-card p { font-size: 14px; color: var(--text2); line-height: 1.6; margin-bottom: 16px; }
     .service-price { font-size: 15px; font-weight: 500; color: var(--gold); }
 
+    /* LAWYERS */
+    .adv-filters { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 32px; }
+    .adv-filter { padding: 7px 18px; border: 1.5px solid var(--border); border-radius: 100px; font-size: 13px; font-weight: 500; color: var(--text2); cursor: pointer; background: var(--white); transition: all 0.2s; font-family: var(--font-body); }
+    .adv-filter:hover, .adv-filter.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+    .adv-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .adv-card { background: var(--white); border: 1px solid #e8e8e8; border-radius: var(--radius-lg); padding: 20px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; position: relative; }
+    .adv-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--gold); }
+    .adv-card.top5 { border-color: rgba(201,168,76,0.4); background: linear-gradient(135deg, #fff 80%, rgba(201,168,76,0.04)); }
+    .adv-top-badge { position: absolute; top: 12px; right: 12px; background: var(--gold); color: var(--navy); font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 100px; }
+    .adv-avatar { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 12px; }
+    .adv-name { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 3px; line-height: 1.3; }
+    .adv-spec { font-size: 12px; color: var(--text3); margin-bottom: 8px; }
+    .adv-rating-row { display: flex; align-items: center; gap: 6px; margin-bottom: 10px; }
+    .adv-stars { font-size: 13px; color: var(--gold); letter-spacing: 1px; }
+    .adv-rating-num { font-size: 13px; font-weight: 600; color: var(--navy); }
+    .adv-reviews { font-size: 11px; color: var(--text3); }
+    .adv-price { font-size: 13px; font-weight: 600; color: var(--gold); margin-bottom: 6px; }
+    .adv-exp { font-size: 11px; color: var(--text3); margin-bottom: 12px; }
+    .adv-btn { display: block; text-align: center; background: var(--navy); color: var(--gold); font-size: 12px; font-weight: 500; padding: 8px; border-radius: 8px; border: none; cursor: pointer; width: 100%; transition: background 0.2s; font-family: var(--font-body); }
+    .adv-btn:hover { background: var(--navy2); }
+
+    /* LAWYER MODAL */
+    .adv-modal-overlay { position: fixed; inset: 0; background: rgba(13,27,42,0.65); backdrop-filter: blur(6px); z-index: 1001; display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+    .adv-modal-overlay.open { opacity: 1; pointer-events: all; }
+    .adv-modal { background: var(--white); border-radius: var(--radius-lg); padding: 36px; width: 100%; max-width: 480px; max-height: 88vh; overflow-y: auto; position: relative; box-shadow: 0 24px 80px rgba(0,0,0,0.2); transform: translateY(28px) scale(0.97); transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s ease; opacity: 0; }
+    .adv-modal-overlay.open .adv-modal { transform: translateY(0) scale(1); opacity: 1; }
+    .adv-modal-close { position: absolute; top: 14px; right: 14px; width: 32px; height: 32px; border-radius: 8px; border: 1px solid var(--border); background: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--text3); font-size: 18px; transition: background var(--transition), color var(--transition); }
+    .adv-modal-close:hover { background: var(--cream); color: var(--navy); }
+    .adv-modal-top { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 20px; }
+    .adv-modal-avatar { width: 72px; height: 72px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700; color: #fff; flex-shrink: 0; }
+    .adv-modal-meta h2 { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .adv-modal-meta .adv-m-spec { font-size: 14px; color: var(--gold); font-weight: 500; margin-bottom: 4px; }
+    .adv-modal-meta .adv-m-city { font-size: 13px; color: var(--text3); }
+    .adv-modal-stars-row { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #f0f0f0; }
+    .adv-modal-stars { font-size: 18px; color: var(--gold); letter-spacing: 2px; }
+    .adv-modal-rnum { font-size: 20px; font-weight: 700; color: var(--navy); }
+    .adv-modal-rcount { font-size: 13px; color: var(--text3); }
+    .adv-modal-section { font-size: 12px; font-weight: 500; color: var(--navy); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 10px; margin-top: 18px; }
+    .adv-modal-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 4px; }
+    .adv-modal-tag { background: var(--cream); color: var(--navy); font-size: 12px; padding: 4px 10px; border-radius: 100px; }
+    .adv-price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 4px; }
+    .adv-price-card { background: #f8f8f8; border-radius: 10px; padding: 12px; }
+    .adv-price-label { font-size: 11px; color: var(--text3); margin-bottom: 4px; }
+    .adv-price-val { font-size: 16px; font-weight: 700; color: var(--gold); }
+    .adv-about { font-size: 14px; color: var(--text2); line-height: 1.7; }
+    .adv-exp-row { display: flex; gap: 12px; margin-top: 14px; }
+    .adv-exp-item { flex: 1; background: #f8f8f8; border-radius: 10px; padding: 12px; text-align: center; }
+    .adv-exp-val { font-size: 20px; font-weight: 700; color: var(--navy); display: block; }
+    .adv-exp-lbl { font-size: 11px; color: var(--text3); }
+    .adv-modal-cta { display: block; width: 100%; background: var(--gold); color: var(--navy); font-size: 15px; font-weight: 600; padding: 14px; border-radius: 12px; border: none; cursor: pointer; text-align: center; margin-top: 20px; transition: background 0.2s; font-family: var(--font-body); }
+    .adv-modal-cta:hover { background: var(--gold2); }
+
+    /* STEPS */
     .steps-grid { display: flex; align-items: center; gap: 12px; }
-    .step-card {
-      flex: 1;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: var(--radius-lg);
-      padding: 32px 28px;
-      transition: background var(--transition);
-    }
+    .step-card { flex: 1; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-lg); padding: 32px 28px; transition: background var(--transition); }
     .step-card:hover { background: rgba(255,255,255,0.1); }
-    .step-num {
-      font-family: var(--font-display);
-      font-size: 48px;
-      font-weight: 700;
-      color: var(--gold);
-      opacity: 0.5;
-      line-height: 1;
-      margin-bottom: 16px;
-    }
+    .step-num { font-family: var(--font-display); font-size: 48px; font-weight: 700; color: var(--gold); opacity: 0.5; line-height: 1; margin-bottom: 16px; }
     .step-card h3 { font-size: 18px; font-weight: 500; color: var(--white); margin-bottom: 10px; }
     .step-card p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.65; }
     .step-arrow { font-size: 28px; color: var(--gold); opacity: 0.5; flex-shrink: 0; }
 
+    /* REVIEWS */
     .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .review-card {
-      background: var(--cream);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 28px;
-    }
+    .review-card { background: var(--cream); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; }
     .review-stars { font-size: 18px; color: var(--gold); margin-bottom: 14px; }
     .review-text { font-size: 15px; color: var(--text2); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
     .review-author { display: flex; align-items: center; gap: 12px; }
-    .author-avatar {
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      background: var(--navy);
-      color: var(--gold);
-      font-size: 13px;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
+    .author-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--navy); color: var(--gold); font-size: 13px; font-weight: 500; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .review-author strong { display: block; font-size: 14px; color: var(--navy); }
     .review-author span { font-size: 12px; color: var(--text3); }
 
+    /* PRICING */
     .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; }
-    .pricing-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 32px 28px;
-      position: relative;
-      transition: box-shadow var(--transition);
-    }
+    .pricing-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px 28px; position: relative; transition: box-shadow var(--transition); }
     .pricing-card:hover { box-shadow: var(--shadow-lg); }
     .pricing-card.featured { border: 2px solid var(--gold); box-shadow: var(--shadow-lg); transform: scale(1.03); }
-    .plan-badge {
-      position: absolute;
-      top: -14px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--gold);
-      color: var(--navy);
-      font-size: 12px;
-      font-weight: 500;
-      padding: 5px 16px;
-      border-radius: 100px;
-      white-space: nowrap;
-    }
+    .plan-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--navy); font-size: 12px; font-weight: 500; padding: 5px 16px; border-radius: 100px; white-space: nowrap; }
     .plan-name { font-size: 16px; font-weight: 500; color: var(--text2); margin-bottom: 10px; }
-    .plan-price {
-      font-family: var(--font-display);
-      font-size: 40px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 6px;
-    }
+    .plan-price { font-family: var(--font-display); font-size: 40px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
     .plan-price span { font-size: 16px; color: var(--text3); font-family: var(--font-body); }
     .plan-desc { font-size: 13px; color: var(--text3); margin-bottom: 24px; }
     .plan-features { margin-bottom: 28px; display: flex; flex-direction: column; gap: 10px; }
     .plan-features li { font-size: 14px; color: var(--text2); }
     .plan-features li.disabled { color: var(--text3); }
 
+    /* CTA */
     .cta-section { background: var(--navy); padding: 96px 0; text-align: center; }
-    .cta-section h2 {
-      font-family: var(--font-display);
-      font-size: clamp(28px, 4vw, 44px);
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 14px;
-    }
+    .cta-section h2 { font-family: var(--font-display); font-size: clamp(28px, 4vw, 44px); font-weight: 700; color: var(--white); margin-bottom: 14px; }
     .cta-section p { font-size: 17px; color: rgba(255,255,255,0.6); margin-bottom: 36px; font-weight: 300; }
 
+    /* FOOTER */
     .footer { background: #0A1520; padding: 64px 0 32px; color: rgba(255,255,255,0.6); }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
     .footer-brand .logo { color: var(--white); margin-bottom: 14px; display: flex; }
@@ -451,262 +233,93 @@
     .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
     .footer-col a { font-size: 14px; color: rgba(255,255,255,0.5); transition: color var(--transition); }
     .footer-col a:hover { color: var(--gold); }
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; }
     .footer-bottom p { font-size: 13px; }
     .social-links { display: flex; gap: 12px; }
-    .social-links a {
-      font-size: 12px;
-      font-weight: 500;
-      color: rgba(255,255,255,0.4);
-      width: 36px; height: 36px;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      transition: color var(--transition), border-color var(--transition);
-    }
+    .social-links a { font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.4); width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: color var(--transition), border-color var(--transition); }
     .social-links a:hover { color: var(--gold); border-color: var(--gold); }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* MODAL */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(13, 27, 42, 0.65);
-      backdrop-filter: blur(6px);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-    .modal-overlay.open {
-      opacity: 1;
-      pointer-events: all;
-    }
-    .modal {
-      background: var(--white);
-      border-radius: var(--radius-lg);
-      padding: 44px 40px;
-      width: 100%;
-      max-width: 460px;
-      position: relative;
-      box-shadow: 0 24px 80px rgba(0,0,0,0.2);
-      transform: translateY(28px) scale(0.97);
-      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
-      opacity: 0;
-    }
-    .modal-overlay.open .modal {
-      transform: translateY(0) scale(1);
-      opacity: 1;
-    }
-    .modal-close {
-      position: absolute;
-      top: 16px; right: 16px;
-      width: 32px; height: 32px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: none;
-      cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--text3);
-      font-size: 18px;
-      transition: background var(--transition), color var(--transition);
-    }
+    /* AUTH MODAL */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(13,27,42,0.65); backdrop-filter: blur(6px); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal { background: var(--white); border-radius: var(--radius-lg); padding: 44px 40px; width: 100%; max-width: 460px; position: relative; box-shadow: 0 24px 80px rgba(0,0,0,0.2); transform: translateY(28px) scale(0.97); transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s ease; opacity: 0; }
+    .modal-overlay.open .modal { transform: translateY(0) scale(1); opacity: 1; }
+    .modal-close { position: absolute; top: 16px; right: 16px; width: 32px; height: 32px; border-radius: 8px; border: 1px solid var(--border); background: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--text3); font-size: 18px; transition: background var(--transition), color var(--transition); }
     .modal-close:hover { background: var(--cream); color: var(--navy); }
-    .modal-logo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-display);
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 24px;
-    }
+    .modal-logo { display: flex; align-items: center; gap: 8px; font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 24px; }
     .modal-logo .logo-uz { color: var(--gold); }
-    .modal h2 {
-      font-family: var(--font-display);
-      font-size: 26px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 6px;
-    }
-    .modal-sub {
-      font-size: 14px;
-      color: var(--text3);
-      margin-bottom: 28px;
-    }
-    .modal-sub a {
-      color: var(--gold);
-      font-weight: 500;
-      cursor: pointer;
-    }
+    .modal h2 { font-family: var(--font-display); font-size: 26px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+    .modal-sub { font-size: 14px; color: var(--text3); margin-bottom: 28px; }
+    .modal-sub a { color: var(--gold); font-weight: 500; cursor: pointer; }
     .modal-sub a:hover { text-decoration: underline; }
-    .modal-tabs {
-      display: flex;
-      background: var(--cream);
-      border-radius: 10px;
-      padding: 4px;
-      margin-bottom: 28px;
-      gap: 4px;
-    }
-    .modal-tab {
-      flex: 1;
-      text-align: center;
-      padding: 9px 0;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text3);
-      cursor: pointer;
-      border: none;
-      background: none;
-      font-family: var(--font-body);
-      transition: background var(--transition), color var(--transition), box-shadow var(--transition);
-    }
-    .modal-tab.active {
-      background: var(--white);
-      color: var(--navy);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
+    .modal-tabs { display: flex; background: var(--cream); border-radius: 10px; padding: 4px; margin-bottom: 28px; gap: 4px; }
+    .modal-tab { flex: 1; text-align: center; padding: 9px 0; border-radius: 8px; font-size: 14px; font-weight: 500; color: var(--text3); cursor: pointer; border: none; background: none; font-family: var(--font-body); transition: background var(--transition), color var(--transition), box-shadow var(--transition); }
+    .modal-tab.active { background: var(--white); color: var(--navy); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
     .form-group { margin-bottom: 16px; }
-    .form-group label {
-      display: block;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text2);
-      margin-bottom: 6px;
-    }
-    .form-group input {
-      width: 100%;
-      padding: 12px 16px;
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius);
-      font-size: 15px;
-      font-family: var(--font-body);
-      color: var(--text);
-      background: var(--white);
-      outline: none;
-      transition: border-color var(--transition), box-shadow var(--transition);
-    }
-    .form-group input:focus {
-      border-color: var(--gold);
-      box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
-    }
+    .form-group label { display: block; font-size: 13px; font-weight: 500; color: var(--text2); margin-bottom: 6px; }
+    .form-group input { width: 100%; padding: 12px 16px; border: 1.5px solid var(--border); border-radius: var(--radius); font-size: 15px; font-family: var(--font-body); color: var(--text); background: var(--white); outline: none; transition: border-color var(--transition), box-shadow var(--transition); }
+    .form-group input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,0.12); }
     .form-group input::placeholder { color: var(--text3); }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .modal-divider {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin: 20px 0;
-    }
-    .modal-divider::before,
-    .modal-divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
+    .modal-divider { display: flex; align-items: center; gap: 12px; margin: 20px 0; }
+    .modal-divider::before, .modal-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
     .modal-divider span { font-size: 12px; color: var(--text3); white-space: nowrap; }
-    .btn-social {
-      width: 100%;
-      padding: 11px;
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius);
-      background: var(--white);
-      font-size: 14px;
-      font-family: var(--font-body);
-      color: var(--text2);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      transition: background var(--transition), border-color var(--transition);
-      margin-bottom: 10px;
-    }
+    .btn-social { width: 100%; padding: 11px; border: 1.5px solid var(--border); border-radius: var(--radius); background: var(--white); font-size: 14px; font-family: var(--font-body); color: var(--text2); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: background var(--transition), border-color var(--transition); margin-bottom: 10px; }
     .btn-social:hover { background: var(--cream); border-color: var(--gold); }
-    .modal-agree {
-      font-size: 12px;
-      color: var(--text3);
-      text-align: center;
-      margin-top: 14px;
-      line-height: 1.6;
-    }
+    .modal-agree { font-size: 12px; color: var(--text3); text-align: center; margin-top: 14px; line-height: 1.6; }
     .modal-agree a { color: var(--gold); }
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
 
-    /* Toast notification */
-    .toast {
-      position: fixed;
-      bottom: 32px;
-      left: 50%;
-      transform: translateX(-50%) translateY(20px);
-      background: var(--navy);
-      color: var(--white);
-      padding: 14px 24px;
-      border-radius: var(--radius);
-      font-size: 14px;
-      font-weight: 500;
-      box-shadow: var(--shadow-lg);
-      z-index: 9999;
-      opacity: 0;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-      white-space: nowrap;
-      pointer-events: none;
-    }
+    /* TOAST */
+    .toast { position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--navy); color: var(--white); padding: 14px 24px; border-radius: var(--radius); font-size: 14px; font-weight: 500; box-shadow: var(--shadow-lg); z-index: 9999; opacity: 0; transition: opacity 0.3s ease, transform 0.3s ease; white-space: nowrap; pointer-events: none; }
     .toast.success { border-left: 4px solid #4CAF50; }
-    .toast.error   { border-left: 4px solid #f44336; }
-    .toast.show    { opacity: 1; transform: translateX(-50%) translateY(0); }
+    .toast.error { border-left: 4px solid #f44336; }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-    /* Submit button loading state */
-    .btn-submit {
-      position: relative;
-      overflow: hidden;
-    }
-    .btn-submit.loading {
-      opacity: 0.8;
-      pointer-events: none;
-    }
-    .btn-submit.loading::after {
-      content: '';
-      position: absolute;
-      width: 18px; height: 18px;
-      border: 2px solid rgba(13,27,42,0.3);
-      border-top-color: var(--navy);
-      border-radius: 50%;
-      animation: spin 0.7s linear infinite;
-      right: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-    }
+    .btn-submit { position: relative; overflow: hidden; }
+    .btn-submit.loading { opacity: 0.8; pointer-events: none; }
+    .btn-submit.loading::after { content: ''; position: absolute; width: 18px; height: 18px; border: 2px solid rgba(13,27,42,0.3); border-top-color: var(--navy); border-radius: 50%; animation: spin 0.7s linear infinite; right: 16px; top: 50%; transform: translateY(-50%); }
     @keyframes spin { to { transform: translateY(-50%) rotate(360deg); } }
+
+    /* PROFILE */
+    .profile-wrapper { position: relative; }
+    .profile-btn { display: flex; align-items: center; gap: 8px; background: var(--cream); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 8px 14px; cursor: pointer; font-family: var(--font-body); font-size: 14px; font-weight: 500; color: var(--navy); transition: border-color var(--transition), background var(--transition); }
+    .profile-btn:hover { border-color: var(--gold); background: var(--cream2); }
+    .profile-avatar { width: 28px; height: 28px; border-radius: 50%; background: var(--navy); color: var(--gold); font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .profile-chevron { font-size: 10px; color: var(--text3); transition: transform 0.2s ease; }
+    .profile-wrapper.open .profile-chevron { transform: rotate(180deg); }
+    .profile-dropdown { position: absolute; top: calc(100% + 10px); right: 0; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); min-width: 220px; z-index: 200; overflow: hidden; opacity: 0; pointer-events: none; transform: translateY(8px); transition: opacity 0.2s ease, transform 0.2s ease; }
+    .profile-wrapper.open .profile-dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .dropdown-header { padding: 16px 18px 12px; border-bottom: 1px solid var(--border); }
+    .dropdown-name { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 3px; }
+    .dropdown-email { font-size: 12px; color: var(--text3); }
+    .dropdown-body { padding: 8px; }
+    .dropdown-item { display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px 12px; border-radius: 8px; font-size: 14px; color: var(--text2); background: none; border: none; cursor: pointer; font-family: var(--font-body); text-align: left; transition: background var(--transition), color var(--transition); }
+    .dropdown-item:hover { background: var(--cream); color: var(--navy); }
+    .dropdown-item.danger:hover { background: #fff0f0; color: #e53e3e; }
+
+    /* LANG */
+    .lang-wrapper { position: relative; }
+    .lang-selected { display: flex; align-items: center; gap: 6px; padding: 8px 14px; border: 1.5px solid var(--border); border-radius: var(--radius); background: var(--white); font-size: 14px; font-weight: 600; color: var(--navy); cursor: pointer; font-family: var(--font-body); transition: border-color var(--transition); white-space: nowrap; }
+    .lang-selected:hover { border-color: var(--gold); }
+    .lang-chevron { font-size: 10px; color: var(--text3); transition: transform 0.2s; }
+    .lang-wrapper.open .lang-chevron { transform: rotate(180deg); }
+    .lang-dropdown { position: absolute; top: calc(100% + 6px); right: 0; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-lg); min-width: 130px; z-index: 300; overflow: hidden; opacity: 0; pointer-events: none; transform: translateY(6px); transition: opacity 0.2s ease, transform 0.2s ease; }
+    .lang-wrapper.open .lang-dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .lang-option { display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px 16px; font-size: 14px; font-weight: 500; color: var(--text2); background: none; border: none; cursor: pointer; font-family: var(--font-body); text-align: left; transition: background var(--transition), color var(--transition); }
+    .lang-option:hover { background: var(--cream); color: var(--navy); }
+    .lang-option.active { color: var(--gold); font-weight: 600; }
 
     @media (max-width: 1024px) {
       .services-grid { grid-template-columns: repeat(2, 1fr); }
       .reviews-grid  { grid-template-columns: repeat(2, 1fr); }
       .footer-grid   { grid-template-columns: 1fr 1fr; }
+      .adv-grid      { grid-template-columns: repeat(3, 1fr); }
     }
     @media (max-width: 768px) {
       .nav-links, .nav-actions { display: none; }
@@ -722,168 +335,14 @@
       .footer-bottom { flex-direction: column; gap: 16px; }
       .modal { padding: 32px 24px; }
       .form-row { grid-template-columns: 1fr; }
+      .adv-grid { grid-template-columns: repeat(2, 1fr); }
+      .adv-price-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 480px) {
       .hero-actions { flex-direction: column; }
       .footer-grid { grid-template-columns: 1fr; }
+      .adv-grid { grid-template-columns: 1fr; }
     }
-
-    /* PROFILE DROPDOWN */
-    .profile-wrapper {
-      position: relative;
-    }
-    .profile-btn {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--cream);
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius);
-      padding: 8px 14px;
-      cursor: pointer;
-      font-family: var(--font-body);
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--navy);
-      transition: border-color var(--transition), background var(--transition);
-    }
-    .profile-btn:hover { border-color: var(--gold); background: var(--cream2); }
-    .profile-avatar {
-      width: 28px; height: 28px;
-      border-radius: 50%;
-      background: var(--navy);
-      color: var(--gold);
-      font-size: 12px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .profile-chevron {
-      font-size: 10px;
-      color: var(--text3);
-      transition: transform 0.2s ease;
-    }
-    .profile-wrapper.open .profile-chevron { transform: rotate(180deg); }
-
-    .profile-dropdown {
-      position: absolute;
-      top: calc(100% + 10px);
-      right: 0;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-lg);
-      min-width: 220px;
-      z-index: 200;
-      overflow: hidden;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(8px);
-      transition: opacity 0.2s ease, transform 0.2s ease;
-    }
-    .profile-wrapper.open .profile-dropdown {
-      opacity: 1;
-      pointer-events: all;
-      transform: translateY(0);
-    }
-    .dropdown-header {
-      padding: 16px 18px 12px;
-      border-bottom: 1px solid var(--border);
-    }
-    .dropdown-name {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 3px;
-    }
-    .dropdown-email {
-      font-size: 12px;
-      color: var(--text3);
-    }
-    .dropdown-body { padding: 8px; }
-    .dropdown-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      width: 100%;
-      padding: 10px 12px;
-      border-radius: 8px;
-      font-size: 14px;
-      color: var(--text2);
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-family: var(--font-body);
-      text-align: left;
-      transition: background var(--transition), color var(--transition);
-    }
-    .dropdown-item:hover { background: var(--cream); color: var(--navy); }
-    .dropdown-item.danger:hover { background: #fff0f0; color: #e53e3e; }
-    /* LANGUAGE SWITCHER DROPDOWN */
-    .lang-wrapper {
-      position: relative;
-    }
-    .lang-selected {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 14px;
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius);
-      background: var(--white);
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--navy);
-      cursor: pointer;
-      font-family: var(--font-body);
-      transition: border-color var(--transition);
-      white-space: nowrap;
-    }
-    .lang-selected:hover { border-color: var(--gold); }
-    .lang-chevron { font-size: 10px; color: var(--text3); transition: transform 0.2s; }
-    .lang-wrapper.open .lang-chevron { transform: rotate(180deg); }
-
-    .lang-dropdown {
-      position: absolute;
-      top: calc(100% + 6px);
-      right: 0;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-lg);
-      min-width: 130px;
-      z-index: 300;
-      overflow: hidden;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(6px);
-      transition: opacity 0.2s ease, transform 0.2s ease;
-    }
-    .lang-wrapper.open .lang-dropdown {
-      opacity: 1;
-      pointer-events: all;
-      transform: translateY(0);
-    }
-    .lang-option {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      width: 100%;
-      padding: 10px 16px;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text2);
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-family: var(--font-body);
-      text-align: left;
-      transition: background var(--transition), color var(--transition);
-    }
-    .lang-option:hover { background: var(--cream); color: var(--navy); }
-    .lang-option.active { color: var(--gold); font-weight: 600; }
   </style>
 </head>
 <body>
@@ -897,6 +356,7 @@
       </a>
       <ul class="nav-links">
         <li><a href="#xizmatlar" data-i18n="nav_services"></a></li>
+        <li><a href="#advokatlar" data-i18n="nav_lawyers">Advokatlar</a></li>
         <li><a href="#qanday" data-i18n="nav_how"></a></li>
         <li><a href="#narxlar" data-i18n="nav_prices"></a></li>
         <li><a href="pages/hujjatlar.html" data-i18n="nav_docs"></a></li>
@@ -924,6 +384,7 @@
 
   <div class="mobile-menu" id="mobileMenu">
     <a href="#xizmatlar" data-i18n="nav_services"></a>
+    <a href="#advokatlar">Advokatlar</a>
     <a href="#qanday" data-i18n="nav_how"></a>
     <a href="#narxlar" data-i18n="nav_prices"></a>
     <a href="pages/hujjatlar.html" data-i18n="nav_docs"></a>
@@ -1011,6 +472,26 @@
     </div>
   </section>
 
+  <!-- ADVOKATLAR REYTINGI -->
+  <section class="section section-alt" id="advokatlar">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Advokatlar</span>
+        <h2 class="section-title">Eng yaxshi advokatlar reytingi</h2>
+        <p class="section-sub">O'zbekistonda tasdiqlangan advokatlar — mijozlar bahosi asosida</p>
+      </div>
+      <div class="adv-filters" id="advFilters">
+        <button class="adv-filter active" onclick="filterAdv('Barchasi', this)">Barchasi</button>
+        <button class="adv-filter" onclick="filterAdv('Biznes huquqi', this)">Biznes huquqi</button>
+        <button class="adv-filter" onclick="filterAdv('Oila huquqi', this)">Oila huquqi</button>
+        <button class="adv-filter" onclick="filterAdv('Jinoyat huquqi', this)">Jinoyat huquqi</button>
+        <button class="adv-filter" onclick="filterAdv('Ko\'chmas mulk', this)">Ko'chmas mulk</button>
+        <button class="adv-filter" onclick="filterAdv('Soliq huquqi', this)">Soliq huquqi</button>
+      </div>
+      <div class="adv-grid" id="advGrid"></div>
+    </div>
+  </section>
+
   <!-- QANDAY ISHLAYDI -->
   <section class="section section-dark" id="qanday">
     <div class="container">
@@ -1054,10 +535,7 @@
           <p class="review-text">"Kompaniyamiz uchun shartnomalarni avval advokatdan 3-4 kunda otar edik. Endi 20 daqiqada tayyor. Vaqt va pul tejadik!"</p>
           <div class="review-author">
             <div class="author-avatar">AK</div>
-            <div>
-              <strong>Akbar Karimov</strong>
-              <span>Toshkent, Savdo kompaniyasi egasi</span>
-            </div>
+            <div><strong>Akbar Karimov</strong><span>Toshkent, Savdo kompaniyasi egasi</span></div>
           </div>
         </div>
         <div class="review-card">
@@ -1065,10 +543,7 @@
           <p class="review-text">"Mchj ochish uchun hujjatlarni o'zim tayyorladim. Juda qulay interfeys, o'zbek tilida tushuntirish bor. Tavsiya qilaman!"</p>
           <div class="review-author">
             <div class="author-avatar">SN</div>
-            <div>
-              <strong>Sarvinoz Nishonova</strong>
-              <span>Startup asoschisi</span>
-            </div>
+            <div><strong>Sarvinoz Nishonova</strong><span>Startup asoschisi</span></div>
           </div>
         </div>
         <div class="review-card">
@@ -1076,10 +551,7 @@
           <p class="review-text">"AI yordamchi savollarimga aniq javob berdi. Advokat bilan bog'lanish ham qulay bo'ldi. Keyingi safar ham foydalanaman."</p>
           <div class="review-author">
             <div class="author-avatar">JR</div>
-            <div>
-              <strong>Jasur Rajabov</strong>
-              <span>Frilanser dasturchi</span>
-            </div>
+            <div><strong>Jasur Rajabov</strong><span>Frilanser dasturchi</span></div>
           </div>
         </div>
       </div>
@@ -1190,474 +662,377 @@
       <div class="footer-bottom">
         <p data-i18n="footer_copy"></p>
         <div class="social-links">
-          <a href="https://t.me/gayratov_vippp" target="_blank" aria-label="Telegram">TG</a>
-          <a href="https://instagram.com/asom.1o" target="_blank" aria-label="Instagram">IG</a>
-          <a href="https://youtube.com/@legalelase.uz" target="_blank" aria-label="YouTube">YT</a>
+          <a href="https://t.me/gayratov_vippp" target="_blank">TG</a>
+          <a href="https://instagram.com/asom.1o" target="_blank">IG</a>
+          <a href="https://youtube.com/@legalelase.uz" target="_blank">YT</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Toast -->
   <div class="toast" id="toast"></div>
 
-  <!-- MODAL -->
+  <!-- AUTH MODAL -->
   <div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
     <div class="modal" id="modal">
       <button class="modal-close" onclick="closeModal()" aria-label="Yopish">✕</button>
-      <div class="modal-logo">
-        <span>⚖</span>
-        LegalEase <span class="logo-uz">UZ</span>
-      </div>
+      <div class="modal-logo"><span>⚖</span> LegalEase <span class="logo-uz">UZ</span></div>
       <div class="modal-tabs">
         <button class="modal-tab" id="tabLogin" onclick="switchTab('login')">Kirish</button>
         <button class="modal-tab" id="tabRegister" onclick="switchTab('register')">Ro'yxatdan o'tish</button>
       </div>
-
-      <!-- LOGIN panel -->
       <div class="tab-panel" id="panelLogin">
         <h2>Xush kelibsiz!</h2>
         <p class="modal-sub">Hisobingiz yo'qmi? <a onclick="switchTab('register')">Ro'yxatdan o'ting</a></p>
-        <div class="form-group">
-          <label>Email yoki telefon</label>
-          <input type="text" id="loginEmail" placeholder="email@example.com" autocomplete="username" />
-        </div>
-        <div class="form-group">
-          <label>Parol</label>
-          <input type="password" id="loginPassword" placeholder="••••••••" autocomplete="current-password" />
-        </div>
-        <button class="btn-primary btn-full btn-submit" id="loginBtn" style="margin-top:8px; font-size:15px; padding:13px;" onclick="handleLogin()">
-          Kirish →
-        </button>
+        <div class="form-group"><label>Email yoki telefon</label><input type="text" id="loginEmail" placeholder="email@example.com" autocomplete="username" /></div>
+        <div class="form-group"><label>Parol</label><input type="password" id="loginPassword" placeholder="••••••••" autocomplete="current-password" /></div>
+        <button class="btn-primary btn-full btn-submit" id="loginBtn" style="margin-top:8px;font-size:15px;padding:13px;" onclick="handleLogin()">Kirish →</button>
         <div class="modal-divider"><span>yoki</span></div>
-        <button class="btn-social">
-          <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
-          Google orqali kirish
-        </button>
-        <p class="modal-agree">
-          Kirish orqali siz <a href="#">Foydalanish shartlari</a> va <a href="#">Maxfiylik siyosati</a>ga rozilik bildirasiz.
-        </p>
+        <button class="btn-social"><svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg> Google orqali kirish</button>
+        <p class="modal-agree">Kirish orqali siz <a href="#">Foydalanish shartlari</a> va <a href="#">Maxfiylik siyosati</a>ga rozilik bildirasiz.</p>
       </div>
-
-      <!-- REGISTER panel -->
       <div class="tab-panel" id="panelRegister">
         <h2>Hisob yarating</h2>
         <p class="modal-sub">Allaqachon hisobingiz bormi? <a onclick="switchTab('login')">Kiring</a></p>
         <div class="form-row">
-          <div class="form-group">
-            <label>Ism</label>
-            <input type="text" id="regFirstName" placeholder="Ism" autocomplete="given-name" />
-          </div>
-          <div class="form-group">
-            <label>Familiya</label>
-            <input type="text" id="regLastName" placeholder="Familiya" autocomplete="family-name" />
-          </div>
+          <div class="form-group"><label>Ism</label><input type="text" id="regFirstName" placeholder="Ism" autocomplete="given-name" /></div>
+          <div class="form-group"><label>Familiya</label><input type="text" id="regLastName" placeholder="Familiya" autocomplete="family-name" /></div>
         </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" id="regEmail" placeholder="email@example.com" autocomplete="email" />
-        </div>
-        <div class="form-group">
-          <label>Parol</label>
-          <input type="password" id="regPassword" placeholder="Kamida 8 ta belgi" autocomplete="new-password" />
-        </div>
-        <button class="btn-primary btn-full btn-submit" id="registerBtn" style="margin-top:8px; font-size:15px; padding:13px;" onclick="handleRegister()">
-          Ro'yxatdan o'tish →
-        </button>
+        <div class="form-group"><label>Email</label><input type="email" id="regEmail" placeholder="email@example.com" autocomplete="email" /></div>
+        <div class="form-group"><label>Parol</label><input type="password" id="regPassword" placeholder="Kamida 8 ta belgi" autocomplete="new-password" /></div>
+        <button class="btn-primary btn-full btn-submit" id="registerBtn" style="margin-top:8px;font-size:15px;padding:13px;" onclick="handleRegister()">Ro'yxatdan o'tish →</button>
         <div class="modal-divider"><span>yoki</span></div>
-        <button class="btn-social">
-          <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
-          Google orqali ro'yxatdan o'tish
-        </button>
-        <p class="modal-agree">
-          Ro'yxatdan o'tish orqali siz <a href="#">Foydalanish shartlari</a> va <a href="#">Maxfiylik siyosati</a>ga rozilik bildirasiz.
-        </p>
+        <button class="btn-social"><svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg> Google orqali ro'yxatdan o'tish</button>
+        <p class="modal-agree">Ro'yxatdan o'tish orqali siz <a href="#">Foydalanish shartlari</a> va <a href="#">Maxfiylik siyosati</a>ga rozilik bildirasiz.</p>
       </div>
     </div>
   </div>
 
+  <!-- ADVOKAT PROFIL MODAL -->
+  <div class="adv-modal-overlay" id="advModalOverlay" onclick="handleAdvOverlayClick(event)">
+    <div class="adv-modal" id="advModal">
+      <button class="adv-modal-close" onclick="closeAdvModal()">✕</button>
+      <div id="advModalContent"></div>
+    </div>
+  </div>
+
   <script>
-    // ============================================================
-    //  TIL ALMASHTRISH TIZIMI (UZ / RU / EN)
-    // ============================================================
-    const TRANSLATIONS = {
-      uz: {
-        nav_services: 'Xizmatlar', nav_how: 'Qanday ishlaydi', nav_prices: 'Narxlar', nav_docs: 'Hujjatlar',
-        btn_login: 'Kirish', btn_start: 'Bepul boshlash', btn_logout: 'Chiqish',
-        hero_badge: '🇺🇿 O\'zbekistondagi #1 onlayn yuridik platforma',
-        hero_title1: 'Yuridik hujjatlar —', hero_title2: '15 daqiqada',
-        hero_sub: 'Shartnoma, nizom, ishonch xati va boshqa hujjatlarni advokatsiz, arzon va tez tayyorlang. O\'zbek qonunchiligiga mos.',
-        hero_btn1: 'Hujjat yaratish →', hero_btn2: 'Qanday ishlaydi?',
-        stat1: 'Hujjat yaratildi', stat2: 'Faol kompaniya', stat3: 'Mijoz bahosi',
-        tag_services: 'Xizmatlar', sec_services_title: 'Sizga nima kerak?', sec_services_sub: 'Eng ko\'p so\'raladigan yuridik xizmatlar — bir joyda',
-        tag_process: 'Jarayon', sec_how_title: '3 qadamda tayyor', sec_how_sub: 'Hech qanday yuridik bilim talab etilmaydi',
-        step1_title: 'Hujjat turini tanlang', step1_text: '100+ shablon ichidan kerakligini toping. AI sizga eng mos variantni taklif qiladi.',
-        step2_title: 'Ma\'lumotlarni kiriting', step2_text: 'Oddiy shakl to\'ldiring. Tushunarsiz savollar uchun AI yordamchi doim yonida.',
-        step3_title: 'Yuklab oling yoki imzolang', step3_text: 'Tayyor hujjatni PDF formatida yuklab oling yoki elektron imzo bilan tasdiqlang.',
-        tag_clients: 'Mijozlar', sec_clients_title: 'Ular allaqachon ishlatmoqda',
-        tag_prices: 'Narxlar', sec_prices_title: 'Oddiy va shaffof narxlar', sec_prices_sub: 'Yashirin to\'lovlar yo\'q',
-        plan1_name: 'Boshlang\'ich', plan1_price: 'Bepul', plan1_desc: 'Individual foydalanuvchilar uchun',
-        plan2_name: 'Professional', plan2_desc: 'Kichik biznes uchun',
-        plan3_name: 'Korporativ', plan3_desc: 'Kompaniyalar uchun',
-        plan_popular: 'Eng mashhur', btn_free_start: 'Bepul boshlash', btn_get_start: 'Boshlash',
-        cta_title: 'Bugun boshlang — bepul', cta_sub: 'Birinchi hujjatingizni bepul yarating. Kredit karta talab etilmaydi.', cta_btn: 'Hozir ro\'yxatdan o\'ting →',
-        footer_desc: 'O\'zbekistondagi birinchi onlayn yuridik xizmatlar platformasi.',
-        footer_col1: 'Xizmatlar', footer_col2: 'Kompaniya', footer_col3: 'Qo\'llab-quvvatlash',
-        footer_copy: '© 2025 LegalEase UZ. Barcha huquqlar himoyalangan.',
-        tab_login: 'Kirish', tab_register: 'Ro\'yxatdan o\'tish',
-      },
-      ru: {
-        nav_services: 'Услуги', nav_how: 'Как это работает', nav_prices: 'Цены', nav_docs: 'Документы',
-        btn_login: 'Войти', btn_start: 'Начать бесплатно', btn_logout: 'Выйти',
-        hero_badge: '🇺🇿 Юридическая платформа №1 в Узбекистане',
-        hero_title1: 'Юридические документы —', hero_title2: 'за 15 минут',
-        hero_sub: 'Составляйте договоры, уставы, доверенности и другие документы без адвоката — быстро и недорого.',
-        hero_btn1: 'Создать документ →', hero_btn2: 'Как это работает?',
-        stat1: 'Документов создано', stat2: 'Активных компаний', stat3: 'Оценка клиентов',
-        tag_services: 'Услуги', sec_services_title: 'Что вам нужно?', sec_services_sub: 'Самые популярные юридические услуги — в одном месте',
-        tag_process: 'Процесс', sec_how_title: 'Готово за 3 шага', sec_how_sub: 'Не требуется юридических знаний',
-        step1_title: 'Выберите тип документа', step1_text: 'Найдите нужный из 100+ шаблонов. ИИ предложит подходящий вариант.',
-        step2_title: 'Введите данные', step2_text: 'Заполните простую форму. ИИ-помощник всегда рядом.',
-        step3_title: 'Скачайте или подпишите', step3_text: 'Скачайте готовый документ в PDF или подтвердите электронной подписью.',
-        tag_clients: 'Клиенты', sec_clients_title: 'Они уже используют',
-        tag_prices: 'Цены', sec_prices_title: 'Простые и прозрачные цены', sec_prices_sub: 'Никаких скрытых платежей',
-        plan1_name: 'Базовый', plan1_price: 'Бесплатно', plan1_desc: 'Для частных лиц',
-        plan2_name: 'Профессиональный', plan2_desc: 'Для малого бизнеса',
-        plan3_name: 'Корпоративный', plan3_desc: 'Для компаний',
-        plan_popular: 'Популярный', btn_free_start: 'Начать бесплатно', btn_get_start: 'Начать',
-        cta_title: 'Начните сегодня — бесплатно', cta_sub: 'Создайте первый документ бесплатно. Кредитная карта не требуется.', cta_btn: 'Зарегистрироваться →',
-        footer_desc: 'Первая онлайн-платформа юридических услуг в Узбекистане.',
-        footer_col1: 'Услуги', footer_col2: 'Компания', footer_col3: 'Поддержка',
-        footer_copy: '© 2025 LegalEase UZ. Все права защищены.',
-        tab_login: 'Войти', tab_register: 'Регистрация',
-      },
-      en: {
-        nav_services: 'Services', nav_how: 'How it works', nav_prices: 'Pricing', nav_docs: 'Documents',
-        btn_login: 'Log in', btn_start: 'Start free', btn_logout: 'Log out',
-        hero_badge: '🇺🇿 Uzbekistan\'s #1 online legal platform',
-        hero_title1: 'Legal documents —', hero_title2: 'in 15 minutes',
-        hero_sub: 'Create contracts, charters, powers of attorney and more — without a lawyer, fast and affordable.',
-        hero_btn1: 'Create document →', hero_btn2: 'How it works?',
-        stat1: 'Documents created', stat2: 'Active companies', stat3: 'Client rating',
-        tag_services: 'Services', sec_services_title: 'What do you need?', sec_services_sub: 'The most requested legal services — all in one place',
-        tag_process: 'Process', sec_how_title: 'Ready in 3 steps', sec_how_sub: 'No legal knowledge required',
-        step1_title: 'Choose document type', step1_text: 'Find what you need from 100+ templates. AI suggests the best option.',
-        step2_title: 'Enter your details', step2_text: 'Fill in a simple form. The AI assistant is always there to help.',
-        step3_title: 'Download or sign', step3_text: 'Download the ready document in PDF or confirm with an electronic signature.',
-        tag_clients: 'Clients', sec_clients_title: 'They\'re already using it',
-        tag_prices: 'Pricing', sec_prices_title: 'Simple & transparent pricing', sec_prices_sub: 'No hidden fees',
-        plan1_name: 'Starter', plan1_price: 'Free', plan1_desc: 'For individuals',
-        plan2_name: 'Professional', plan2_desc: 'For small businesses',
-        plan3_name: 'Corporate', plan3_desc: 'For companies',
-        plan_popular: 'Most popular', btn_free_start: 'Start free', btn_get_start: 'Get started',
-        cta_title: 'Start today — free', cta_sub: 'Create your first document for free. No credit card required.', cta_btn: 'Register now →',
-        footer_desc: 'Uzbekistan\'s first online legal services platform.',
-        footer_col1: 'Services', footer_col2: 'Company', footer_col3: 'Support',
-        footer_copy: '© 2025 LegalEase UZ. All rights reserved.',
-        tab_login: 'Log in', tab_register: 'Sign up',
-      }
-    };
+  // ============================================================
+  //  ADVOKATLAR MA'LUMOTLARI (yur24.uz narxlari asosida)
+  // ============================================================
+  const ADV_AVATARS = ['#2B6CB0','#276749','#9B2C2C','#744210','#553C9A','#2C7A7B','#C05621','#285E61','#702459','#1A365D','#22543D','#7B341E','#44337A','#234E52','#652B19','#1D4044','#3C366B','#1A202C','#2D3748','#4A5568'];
 
-    let currentLang = localStorage.getItem('legalease_lang') || 'uz';
+  const LAWYERS = [
+    {name:'Alisher Toshmatov', spec:'Biznes huquqi', city:'Toshkent', exp:15, cases:320, rating:5.0, reviews:148, consult:350000, rep:2100000, about:'Korporativ huquq va biznes ro\'yxatga olish bo\'yicha O\'zbekistondagi eng tajribali mutaxassislardan biri. 15 yil davomida 300+ kompaniya ochishga yordam bergan.', tags:['Biznes huquqi','Korporativ','MCHJ','Shartnoma']},
+    {name:'Dilnoza Yusupova', spec:'Oila huquqi', city:'Toshkent', exp:12, cases:280, rating:5.0, reviews:203, consult:300000, rep:1800000, about:'Ajralish, vasiylik va meros ishlari bo\'yicha mutaxassis. Har bir mijozga individual yondashuv bilan ishlaydi.', tags:['Oila huquqi','Ajralish','Meros','Vasiylik']},
+    {name:'Bobur Rahimov', spec:'Jinoyat huquqi', city:'Toshkent', exp:18, cases:410, rating:5.0, reviews:175, consult:400000, rep:2500000, about:'Jinoyat ishlari bo\'yicha O\'zbekistondagi yetakchi himoyachi. Sudda 18 yillik ish tajribasi.', tags:['Jinoyat huquqi','Sud himoya','Apellyatsiya']},
+    {name:'Sarvinoz Xolmatova', spec:'Ko\'chmas mulk', city:'Samarqand', exp:10, cases:195, rating:5.0, reviews:122, consult:280000, rep:1600000, about:'Ko\'chmas mulk xarid-sotish, ijara va qurilish nizolari bo\'yicha tajribali advokat.', tags:['Ko\'chmas mulk','Uy-joy','Yer','Qurilish']},
+    {name:'Jasur Mirzayev', spec:'Soliq huquqi', city:'Toshkent', exp:14, cases:260, rating:5.0, reviews:89, consult:380000, rep:2200000, about:'Soliq inspeksiyasi bilan nizolar va biznes soliq optimallashtirish bo\'yicha mutaxassis.', tags:['Soliq huquqi','Davlat organlar','Audit','Biznes']},
+    {name:'Kamola Nazarova', spec:'Biznes huquqi', city:'Toshkent', exp:9, cases:180, rating:4.5, reviews:134, consult:250000, rep:1500000, about:'Startuplar va kichik biznes uchun yuridik xizmatlar ko\'rsatadi. IT sohasi bo\'yicha qo\'shimcha tajribaga ega.', tags:['Biznes huquqi','Startup','IT huquq','Litsenziya']},
+    {name:'Sherzod Ergashev', spec:'Oila huquqi', city:'Farg\'ona', exp:11, cases:220, rating:4.5, reviews:98, consult:200000, rep:1300000, about:'Farg\'ona viloyatida oila huquqi bo\'yicha eng mashhur advokatlardan biri.', tags:['Oila huquqi','Nafaqa','Ajralish','Bola']},
+    {name:'Malika Tursunova', spec:'Ko\'chmas mulk', city:'Buxoro', exp:8, cases:150, rating:4.5, reviews:77, consult:220000, rep:1400000, about:'Ko\'chmas mulk ro\'yxatga olish va yer huquqi masalalari bo\'yicha mutaxassis.', tags:['Ko\'chmas mulk','Yer kadastri','Ro\'yxat','Ipoteka']},
+    {name:'Nodir Qodirov', spec:'Jinoyat huquqi', city:'Toshkent', exp:13, cases:298, rating:4.5, reviews:156, consult:350000, rep:2000000, about:'Iqtisodiy jinoyatlar va korrupsiya ishlari bo\'yicha tajribali himoyachi advokat.', tags:['Jinoyat huquqi','Iqtisodiy jinoyat','Korrupsiya']},
+    {name:'Zulfiya Abdullayeva', spec:'Soliq huquqi', city:'Toshkent', exp:7, cases:130, rating:4.5, reviews:64, consult:230000, rep:1400000, about:'Yosh va zamonaviy advokat — soliq deklaratsiyasi va biznes litsenziyalash bo\'yicha yordam beradi.', tags:['Soliq huquqi','Deklaratsiya','Biznes']},
+    {name:'Otabek Hamidov', spec:'Biznes huquqi', city:'Namangan', exp:10, cases:175, rating:4.0, reviews:88, consult:200000, rep:1200000, about:'Namangan viloyatida biznes huquqi va savdo nizolari bo\'yicha mashhur advokat.', tags:['Biznes huquqi','Savdo','Shartnoma','Nizo']},
+    {name:'Feruza Isoqova', spec:'Oila huquqi', city:'Andijon', exp:6, cases:115, rating:4.0, reviews:72, consult:180000, rep:1100000, about:'Andijon shahridagi oila huquqi bo\'yicha tajribali mutaxassis. Ajralish va nafaqa masalalari.', tags:['Oila huquqi','Nafaqa','Ajralish']},
+    {name:'Ravshan Umarov', spec:'Ko\'chmas mulk', city:'Toshkent', exp:9, cases:162, rating:4.0, reviews:93, consult:240000, rep:1450000, about:'Toshkentda ko\'chmas mulk masalalari va kvartira xaridi bo\'yicha yuridik yordam ko\'rsatadi.', tags:['Ko\'chmas mulk','Kvartira','Ipoteka','Shartnoma']},
+    {name:'Hulkar Sultonova', spec:'Jinoyat huquqi', city:'Samarqand', exp:8, cases:144, rating:4.0, reviews:61, consult:250000, rep:1500000, about:'Samarqand shahridagi jinoyat ishlari bo\'yicha malakali advokat.', tags:['Jinoyat huquqi','Sud','Himoya']},
+    {name:'Behruz Tojiboyev', spec:'Soliq huquqi', city:'Toshkent', exp:6, cases:108, rating:4.0, reviews:54, consult:210000, rep:1250000, about:'Soliq qaytarish va byudjet munosabatlari bo\'yicha ixtisoslashgan yosh advokat.', tags:['Soliq huquqi','QQS','Soliq qaytarish']},
+    {name:'Nozima Karimova', spec:'Biznes huquqi', city:'Qo\'qon', exp:5, cases:88, rating:3.5, reviews:42, consult:160000, rep:1000000, about:'Qo\'qon shahrida kichik biznes va yakka tartibdagi tadbirkorlar uchun yuridik yordam beradi.', tags:['Biznes huquqi','YT','MCHJ','Soliq']},
+    {name:'Akbar Normatov', spec:'Ko\'chmas mulk', city:'Qarshi', exp:7, cases:121, rating:3.5, reviews:38, consult:170000, rep:1050000, about:'Qashqadaryo viloyatida yer va ko\'chmas mulk masalalari bo\'yicha tajribali advokat.', tags:['Ko\'chmas mulk','Yer','Kadastr']},
+    {name:'Dildora Yo\'ldosheva', spec:'Oila huquqi', city:'Nukus', exp:5, cases:95, rating:3.5, reviews:29, consult:150000, rep:950000, about:'Qoraqalpog\'istonda oila huquqi masalalari bo\'yicha yordam ko\'rsatadi.', tags:['Oila huquqi','Meros','Vasiylik']},
+    {name:'Sarvarbek Qosimov', spec:'Jinoyat huquqi', city:'Jizzax', exp:6, cases:103, rating:3.5, reviews:33, consult:170000, rep:1050000, about:'Jizzax viloyatida jinoyat va ma\'muriy huquq bo\'yicha ixtisoslashgan advokat.', tags:['Jinoyat huquqi','Ma\'muriy','Jarima']},
+    {name:'Mohira Hasanova', spec:'Soliq huquqi', city:'Termiz', exp:4, cases:72, rating:3.5, reviews:24, consult:150000, rep:900000, about:'Surxondaryo viloyatida soliq masalalari va tadbirkorlik huquqi bo\'yicha yordam beradi.', tags:['Soliq huquqi','Tadbirkorlik','Litsenziya']},
+  ];
 
-    function t(key) {
-      return (TRANSLATIONS[currentLang] && TRANSLATIONS[currentLang][key]) || TRANSLATIONS['uz'][key] || key;
+  function starsHTML(r) {
+    const full = Math.floor(r);
+    const half = (r % 1) >= 0.5;
+    let s = '';
+    for(let i=0;i<full;i++) s += '★';
+    if(half) s += '½';
+    for(let i=full+(half?1:0);i<5;i++) s += '☆';
+    return s;
+  }
+
+  function fmtPrice(p) {
+    return p.toLocaleString('uz-UZ') + ' so\'m';
+  }
+
+  function filterAdv(f, btn) {
+    document.querySelectorAll('.adv-filter').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderAdvCards(f);
+  }
+
+  function renderAdvCards(filter) {
+    const grid = document.getElementById('advGrid');
+    const list = filter === 'Barchasi' ? LAWYERS : LAWYERS.filter(l => l.spec === filter || l.tags.includes(filter));
+    grid.innerHTML = list.map(l => {
+      const idx = LAWYERS.indexOf(l);
+      const isTop = l.rating === 5.0;
+      const initials = l.name.split(' ').map(w=>w[0]).join('').slice(0,2);
+      return `<div class="adv-card${isTop?' top5':''}" onclick="openAdvModal(${idx})">
+        ${isTop?'<div class="adv-top-badge">TOP 5</div>':''}
+        <div class="adv-avatar" style="background:${ADV_AVATARS[idx]}">${initials}</div>
+        <div class="adv-name">${l.name}</div>
+        <div class="adv-spec">${l.spec} · ${l.city}</div>
+        <div class="adv-rating-row">
+          <span class="adv-stars">${starsHTML(l.rating)}</span>
+          <span class="adv-rating-num">${l.rating.toFixed(1)}</span>
+          <span class="adv-reviews">(${l.reviews} sharh)</span>
+        </div>
+        <div class="adv-price">Konsultatsiya: ${fmtPrice(l.consult)}</div>
+        <div class="adv-exp">${l.exp} yil tajriba · ${l.cases}+ ish</div>
+        <button class="adv-btn">Profil ko'rish →</button>
+      </div>`;
+    }).join('');
+  }
+
+  function openAdvModal(idx) {
+    const l = LAWYERS[idx];
+    const initials = l.name.split(' ').map(w=>w[0]).join('').slice(0,2);
+    document.getElementById('advModalContent').innerHTML = `
+      <div class="adv-modal-top">
+        <div class="adv-modal-avatar" style="background:${ADV_AVATARS[idx]}">${initials}</div>
+        <div class="adv-modal-meta">
+          <h2>${l.name}</h2>
+          <div class="adv-m-spec">${l.spec}</div>
+          <div class="adv-m-city">📍 ${l.city}, O'zbekiston</div>
+        </div>
+      </div>
+      <div class="adv-modal-stars-row">
+        <div class="adv-modal-stars">${starsHTML(l.rating)}</div>
+        <div class="adv-modal-rnum">${l.rating.toFixed(1)}</div>
+        <div class="adv-modal-rcount">${l.reviews} ta sharh asosida</div>
+      </div>
+      <div class="adv-exp-row">
+        <div class="adv-exp-item"><span class="adv-exp-val">${l.exp}</span><span class="adv-exp-lbl">Yil tajriba</span></div>
+        <div class="adv-exp-item"><span class="adv-exp-val">${l.cases}+</span><span class="adv-exp-lbl">Hal etilgan ish</span></div>
+        <div class="adv-exp-item"><span class="adv-exp-val">${l.rating.toFixed(1)}</span><span class="adv-exp-lbl">Reyting</span></div>
+      </div>
+      <div class="adv-modal-section">Ixtisoslik sohalari</div>
+      <div class="adv-modal-tags">${l.tags.map(t=>`<span class="adv-modal-tag">${t}</span>`).join('')}</div>
+      <div class="adv-modal-section">Xizmat narxlari</div>
+      <div class="adv-price-grid">
+        <div class="adv-price-card"><div class="adv-price-label">Konsultatsiya (30 daqiqa)</div><div class="adv-price-val">${fmtPrice(l.consult)}</div></div>
+        <div class="adv-price-card"><div class="adv-price-label">Vakillik xizmati (dan)</div><div class="adv-price-val">${fmtPrice(l.rep)}</div></div>
+      </div>
+      <div class="adv-modal-section">Advokat haqida</div>
+      <div class="adv-about">${l.about}</div>
+      <button class="adv-modal-cta" onclick="openModal('register'); closeAdvModal()">Konsultatsiya olish →</button>
+    `;
+    document.getElementById('advModalOverlay').classList.add('open');
+  }
+
+  function closeAdvModal() {
+    document.getElementById('advModalOverlay').classList.remove('open');
+  }
+
+  function handleAdvOverlayClick(e) {
+    if(e.target === document.getElementById('advModalOverlay')) closeAdvModal();
+  }
+
+  renderAdvCards('Barchasi');
+
+  // ============================================================
+  //  TIL ALMASHTRISH
+  // ============================================================
+  const TRANSLATIONS = {
+    uz: {
+      nav_services:'Xizmatlar', nav_how:'Qanday ishlaydi', nav_prices:'Narxlar', nav_docs:'Hujjatlar',
+      btn_login:'Kirish', btn_start:'Bepul boshlash', btn_logout:'Chiqish',
+      hero_badge:'🇺🇿 O\'zbekistondagi #1 onlayn yuridik platforma',
+      hero_title1:'Yuridik hujjatlar —', hero_title2:'15 daqiqada',
+      hero_sub:'Shartnoma, nizom, ishonch xati va boshqa hujjatlarni advokatsiz, arzon va tez tayyorlang. O\'zbek qonunchiligiga mos.',
+      hero_btn1:'Hujjat yaratish →', hero_btn2:'Qanday ishlaydi?',
+      stat1:'Hujjat yaratildi', stat2:'Faol kompaniya', stat3:'Mijoz bahosi',
+      tag_services:'Xizmatlar', sec_services_title:'Sizga nima kerak?', sec_services_sub:'Eng ko\'p so\'raladigan yuridik xizmatlar — bir joyda',
+      tag_process:'Jarayon', sec_how_title:'3 qadamda tayyor', sec_how_sub:'Hech qanday yuridik bilim talab etilmaydi',
+      step1_title:'Hujjat turini tanlang', step1_text:'100+ shablon ichidan kerakligini toping. AI sizga eng mos variantni taklif qiladi.',
+      step2_title:'Ma\'lumotlarni kiriting', step2_text:'Oddiy shakl to\'ldiring. Tushunarsiz savollar uchun AI yordamchi doim yonida.',
+      step3_title:'Yuklab oling yoki imzolang', step3_text:'Tayyor hujjatni PDF formatida yuklab oling yoki elektron imzo bilan tasdiqlang.',
+      tag_clients:'Mijozlar', sec_clients_title:'Ular allaqachon ishlatmoqda',
+      tag_prices:'Narxlar', sec_prices_title:'Oddiy va shaffof narxlar', sec_prices_sub:'Yashirin to\'lovlar yo\'q',
+      plan1_name:'Boshlang\'ich', plan1_price:'Bepul', plan1_desc:'Individual foydalanuvchilar uchun',
+      plan2_name:'Professional', plan2_desc:'Kichik biznes uchun',
+      plan3_name:'Korporativ', plan3_desc:'Kompaniyalar uchun',
+      plan_popular:'Eng mashhur',
+      cta_title:'Bugun boshlang — bepul', cta_sub:'Birinchi hujjatingizni bepul yarating. Kredit karta talab etilmaydi.', cta_btn:'Hozir ro\'yxatdan o\'ting →',
+      footer_desc:'O\'zbekistondagi birinchi onlayn yuridik xizmatlar platformasi.',
+      footer_col1:'Xizmatlar', footer_col2:'Kompaniya', footer_col3:'Qo\'llab-quvvatlash',
+      footer_copy:'© 2025 LegalEase UZ. Barcha huquqlar himoyalangan.',
+      tab_login:'Kirish', tab_register:'Ro\'yxatdan o\'tish',
+    },
+    ru: {
+      nav_services:'Услуги', nav_how:'Как это работает', nav_prices:'Цены', nav_docs:'Документы',
+      btn_login:'Войти', btn_start:'Начать бесплатно', btn_logout:'Выйти',
+      hero_badge:'🇺🇿 Юридическая платформа №1 в Узбекистане',
+      hero_title1:'Юридические документы —', hero_title2:'за 15 минут',
+      hero_sub:'Составляйте договоры, уставы, доверенности и другие документы без адвоката — быстро и недорого.',
+      hero_btn1:'Создать документ →', hero_btn2:'Как это работает?',
+      stat1:'Документов создано', stat2:'Активных компаний', stat3:'Оценка клиентов',
+      tag_services:'Услуги', sec_services_title:'Что вам нужно?', sec_services_sub:'Самые популярные юридические услуги — в одном месте',
+      tag_process:'Процесс', sec_how_title:'Готово за 3 шага', sec_how_sub:'Не требуется юридических знаний',
+      step1_title:'Выберите тип документа', step1_text:'Найдите нужный из 100+ шаблонов. ИИ предложит подходящий вариант.',
+      step2_title:'Введите данные', step2_text:'Заполните простую форму. ИИ-помощник всегда рядом.',
+      step3_title:'Скачайте или подпишите', step3_text:'Скачайте готовый документ в PDF или подтвердите электронной подписью.',
+      tag_clients:'Клиенты', sec_clients_title:'Они уже используют',
+      tag_prices:'Цены', sec_prices_title:'Простые и прозрачные цены', sec_prices_sub:'Никаких скрытых платежей',
+      plan1_name:'Базовый', plan1_price:'Бесплатно', plan1_desc:'Для частных лиц',
+      plan2_name:'Профессиональный', plan2_desc:'Для малого бизнеса',
+      plan3_name:'Корпоративный', plan3_desc:'Для компаний',
+      plan_popular:'Популярный',
+      cta_title:'Начните сегодня — бесплатно', cta_sub:'Создайте первый документ бесплатно. Кредитная карта не требуется.', cta_btn:'Зарегистрироваться →',
+      footer_desc:'Первая онлайн-платформа юридических услуг в Узбекистане.',
+      footer_col1:'Услуги', footer_col2:'Компания', footer_col3:'Поддержка',
+      footer_copy:'© 2025 LegalEase UZ. Все права защищены.',
+      tab_login:'Войти', tab_register:'Регистрация',
+    },
+    en: {
+      nav_services:'Services', nav_how:'How it works', nav_prices:'Pricing', nav_docs:'Documents',
+      btn_login:'Log in', btn_start:'Start free', btn_logout:'Log out',
+      hero_badge:'🇺🇿 Uzbekistan\'s #1 online legal platform',
+      hero_title1:'Legal documents —', hero_title2:'in 15 minutes',
+      hero_sub:'Create contracts, charters, powers of attorney and more — without a lawyer, fast and affordable.',
+      hero_btn1:'Create document →', hero_btn2:'How it works?',
+      stat1:'Documents created', stat2:'Active companies', stat3:'Client rating',
+      tag_services:'Services', sec_services_title:'What do you need?', sec_services_sub:'The most requested legal services — all in one place',
+      tag_process:'Process', sec_how_title:'Ready in 3 steps', sec_how_sub:'No legal knowledge required',
+      step1_title:'Choose document type', step1_text:'Find what you need from 100+ templates. AI suggests the best option.',
+      step2_title:'Enter your details', step2_text:'Fill in a simple form. The AI assistant is always there to help.',
+      step3_title:'Download or sign', step3_text:'Download the ready document in PDF or confirm with an electronic signature.',
+      tag_clients:'Clients', sec_clients_title:'They\'re already using it',
+      tag_prices:'Pricing', sec_prices_title:'Simple & transparent pricing', sec_prices_sub:'No hidden fees',
+      plan1_name:'Starter', plan1_price:'Free', plan1_desc:'For individuals',
+      plan2_name:'Professional', plan2_desc:'For small businesses',
+      plan3_name:'Corporate', plan3_desc:'For companies',
+      plan_popular:'Most popular',
+      cta_title:'Start today — free', cta_sub:'Create your first document for free. No credit card required.', cta_btn:'Register now →',
+      footer_desc:'Uzbekistan\'s first online legal services platform.',
+      footer_col1:'Services', footer_col2:'Company', footer_col3:'Support',
+      footer_copy:'© 2025 LegalEase UZ. All rights reserved.',
+      tab_login:'Log in', tab_register:'Sign up',
     }
+  };
 
-    function applyTranslations() {
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        el.textContent = t(key);
-      });
-      // Modal tablarni ham yangilash
-      const tl = document.getElementById('tabLogin');
-      const tr = document.getElementById('tabRegister');
-      if (tl) tl.textContent = t('tab_login');
-      if (tr) tr.textContent = t('tab_register');
+  let currentLang = localStorage.getItem('legalease_lang') || 'uz';
+  function t(key) { return (TRANSLATIONS[currentLang]&&TRANSLATIONS[currentLang][key])||TRANSLATIONS['uz'][key]||key; }
+  function applyTranslations() {
+    document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.getAttribute('data-i18n')); });
+    const tl=document.getElementById('tabLogin'); const tr=document.getElementById('tabRegister');
+    if(tl) tl.textContent=t('tab_login'); if(tr) tr.textContent=t('tab_register');
+  }
+  function toggleLangDropdown() { document.getElementById('langWrapper').classList.toggle('open'); }
+  document.addEventListener('click', e => { const lw=document.getElementById('langWrapper'); if(lw&&!lw.contains(e.target)) lw.classList.remove('open'); });
+  const LANG_META = {uz:{code:'UZ'},ru:{code:'RU'},en:{code:'EN'}};
+  function setLang(lang) {
+    currentLang=lang; localStorage.setItem('legalease_lang',lang);
+    document.getElementById('langCurrentCode').textContent=LANG_META[lang].code;
+    ['uz','ru','en'].forEach(l=>{ const el=document.getElementById('langOpt'+l.charAt(0).toUpperCase()+l.slice(1)); if(el) el.classList.toggle('active',l===lang); });
+    document.getElementById('langWrapper').classList.remove('open');
+    applyTranslations();
+    if(currentUser) updateAuthUI(currentUser);
+  }
+  window.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('langCurrentCode').textContent=LANG_META[currentLang].code;
+    ['uz','ru','en'].forEach(l=>{ const el=document.getElementById('langOpt'+l.charAt(0).toUpperCase()+l.slice(1)); if(el) el.classList.toggle('active',l===currentLang); });
+    applyTranslations();
+  });
+
+  // ============================================================
+  //  TELEGRAM
+  // ============================================================
+  const TG_CONFIG = { token:'8694835233:AAGAg94a6jMtF-43S-ruCAvzLlY65hX9hgE', chatId:'7210885622' };
+
+  function showToast(msg, type='success') {
+    const t=document.getElementById('toast'); t.textContent=msg; t.className='toast '+type;
+    void t.offsetWidth; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),4000);
+  }
+
+  async function sendTelegram(message) {
+    const url=`https://api.telegram.org/bot${TG_CONFIG.token}/sendMessage`;
+    try {
+      const r=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:TG_CONFIG.chatId,text:message,parse_mode:'HTML'})});
+      const d=await r.json(); return d.ok===true;
+    } catch(e) { return false; }
+  }
+
+  function validateEmail(email) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); }
+
+  async function handleRegister() {
+    const firstName=document.getElementById('regFirstName').value.trim();
+    const lastName=document.getElementById('regLastName').value.trim();
+    const email=document.getElementById('regEmail').value.trim();
+    const password=document.getElementById('regPassword').value;
+    if(!firstName){showToast('❌ Ismingizni kiriting','error');return;}
+    if(!lastName){showToast('❌ Familiyangizni kiriting','error');return;}
+    if(!email||!validateEmail(email)){showToast('❌ To\'g\'ri email kiriting','error');return;}
+    if(password.length<8){showToast('❌ Parol kamida 8 ta belgi bo\'lishi kerak','error');return;}
+    const btn=document.getElementById('registerBtn'); btn.classList.add('loading'); btn.textContent='Ro\'yxatdan o\'tilmoqda...';
+    const tgText='🔔 <b>LegalEase UZ — Yangi foydalanuvchi!</b>\n\n👤 <b>Ism:</b> '+firstName+' '+lastName+'\n📧 <b>Email:</b> '+email+'\n🕐 <b>Vaqt:</b> '+new Date().toLocaleString('uz-UZ');
+    await sendTelegram(tgText);
+    btn.classList.remove('loading'); btn.textContent='Ro\'yxatdan o\'tish →';
+    showToast('✅ Ro\'yxatdan o\'tdingiz! Xush kelibsiz, '+firstName+'!','success');
+    currentUser={firstName,lastName,email};
+    localStorage.setItem('legalease_user',JSON.stringify(currentUser));
+    updateAuthUI(currentUser);
+    setTimeout(()=>{ closeModal(); document.getElementById('regFirstName').value=''; document.getElementById('regLastName').value=''; document.getElementById('regEmail').value=''; document.getElementById('regPassword').value=''; },1500);
+  }
+
+  function handleLogin() {
+    const email=document.getElementById('loginEmail').value.trim();
+    const password=document.getElementById('loginPassword').value;
+    if(!email){showToast('❌ Email yoki telefonni kiriting','error');return;}
+    if(!password){showToast('❌ Parolni kiriting','error');return;}
+    const btn=document.getElementById('loginBtn'); btn.classList.add('loading'); btn.textContent='Kirilmoqda...';
+    setTimeout(()=>{ btn.classList.remove('loading'); btn.textContent='Kirish →'; showToast('✅ Muvaffaqiyatli kirdingiz!','success'); currentUser={firstName:email.split('@')[0],lastName:'',email}; localStorage.setItem('legalease_user',JSON.stringify(currentUser)); updateAuthUI(currentUser); setTimeout(closeModal,1500); },1200);
+  }
+
+  let currentUser=null;
+  function getInitials(f,l){return((f?.[0]||'')+(l?.[0]||'')).toUpperCase()||'?';}
+
+  function updateAuthUI(user) {
+    const na=document.getElementById('navActions'); const ma=document.getElementById('mobileAuthButtons');
+    if(user){
+      const initials=getInitials(user.firstName,user.lastName);
+      const fullName=[user.firstName,user.lastName].filter(Boolean).join(' ');
+      na.innerHTML=`<div class="profile-wrapper" id="profileWrapper"><button class="profile-btn" onclick="toggleDropdown()"><div class="profile-avatar">${initials}</div><span>${user.firstName}</span><span class="profile-chevron">▼</span></button><div class="profile-dropdown" id="profileDropdown"><div class="dropdown-header"><div class="dropdown-name">${fullName}</div><div class="dropdown-email">${user.email}</div></div><div class="dropdown-body"><button class="dropdown-item danger" onclick="handleLogout()">🚪 Chiqish</button></div></div></div>`;
+      ma.innerHTML=`<button class="btn-ghost" onclick="handleLogout();closeMobileMenu()">🚪 Chiqish (${user.firstName})</button>`;
+    } else {
+      na.innerHTML=`<button class="btn-ghost" onclick="openModal('login')">Kirish</button><button class="btn-primary" onclick="openModal('register')">Bepul boshlash</button>`;
+      ma.innerHTML=`<button class="btn-ghost" onclick="openModal('login');closeMobileMenu()">Kirish</button><button class="btn-primary" onclick="openModal('register');closeMobileMenu()">Bepul boshlash</button>`;
     }
+  }
 
-    function toggleLangDropdown() {
-      document.getElementById('langWrapper').classList.toggle('open');
-    }
+  function toggleDropdown(){const w=document.getElementById('profileWrapper');if(w)w.classList.toggle('open');}
+  document.addEventListener('click',e=>{const w=document.getElementById('profileWrapper');if(w&&!w.contains(e.target))w.classList.remove('open');});
+  function handleLogout(){currentUser=null;localStorage.removeItem('legalease_user');updateAuthUI(null);showToast('👋 Chiqildi. Ko\'rishguncha!','success');}
 
-    // Tashqariga bosganda yopilsin
-    document.addEventListener('click', (e) => {
-      const lw = document.getElementById('langWrapper');
-      if (lw && !lw.contains(e.target)) lw.classList.remove('open');
-    });
+  (function checkSession(){const saved=localStorage.getItem('legalease_user');if(saved){currentUser=JSON.parse(saved);updateAuthUI(currentUser);}})();
 
-    const LANG_META = {
-      uz: { code: 'UZ' },
-      ru: { code: 'RU' },
-      en: { code: 'EN' },
-    };
+  // Navbar scroll
+  const navbar=document.getElementById('navbar');
+  window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>20));
 
-    function setLang(lang) {
-      currentLang = lang;
-      localStorage.setItem('legalease_lang', lang);
-      document.getElementById('langCurrentCode').textContent = LANG_META[lang].code;
-      ['uz','ru','en'].forEach(l => {
-        const el = document.getElementById('langOpt' + l.charAt(0).toUpperCase() + l.slice(1));
-        if (el) el.classList.toggle('active', l === lang);
-      });
-      document.getElementById('langWrapper').classList.remove('open');
-      applyTranslations();
-      if (currentUser) updateAuthUI(currentUser);
-    }
+  // Burger
+  const burger=document.getElementById('burger');
+  const mobileMenu=document.getElementById('mobileMenu');
+  burger.addEventListener('click',()=>mobileMenu.classList.toggle('open'));
+  function closeMobileMenu(){mobileMenu.classList.remove('open');}
 
-    window.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('langCurrentCode').textContent = LANG_META[currentLang].code;
-      ['uz','ru','en'].forEach(l => {
-        const el = document.getElementById('langOpt' + l.charAt(0).toUpperCase() + l.slice(1));
-        if (el) el.classList.toggle('active', l === currentLang);
-      });
-      applyTranslations();
-    });
-    // ============================================================
+  // Reveal
+  const reveals=document.querySelectorAll('.reveal');
+  const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.15});
+  reveals.forEach(el=>observer.observe(el));
 
-    // ============================================================
-    //  TELEGRAM BOT SOZLAMALARI
-    // ============================================================
-    const TG_CONFIG = {
-      token:  '8694835233:AAGAg94a6jMtF-43S-ruCAvzLlY65hX9hgE',
-      chatId: '7210885622'
-    };
-    // ============================================================
-
-    // ----- Toast -----
-    function showToast(msg, type = 'success') {
-      const t = document.getElementById('toast');
-      t.textContent = msg;
-      t.className = 'toast ' + type;
-      void t.offsetWidth;
-      t.classList.add('show');
-      setTimeout(() => t.classList.remove('show'), 4000);
-    }
-
-    // ----- Telegram xabar yuborish -----
-    async function sendTelegram(message) {
-      const url = `https://api.telegram.org/bot${TG_CONFIG.token}/sendMessage`;
-      try {
-        const response = await fetch(url, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            chat_id: TG_CONFIG.chatId,
-            text: message,
-            parse_mode: 'HTML'
-          })
-        });
-        const data = await response.json();
-        return data.ok === true;
-      } catch (err) {
-        console.warn('Telegram xatosi:', err.message);
-        return false;
-      }
-    }
-
-    // ----- Validatsiya -----
-    function validateEmail(email) {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    }
-
-    // ----- RO'YXATDAN O'TISH -----
-    async function handleRegister() {
-      const firstName = document.getElementById('regFirstName').value.trim();
-      const lastName  = document.getElementById('regLastName').value.trim();
-      const email     = document.getElementById('regEmail').value.trim();
-      const password  = document.getElementById('regPassword').value;
-
-      // Validatsiya
-      if (!firstName) { showToast('❌ Ismingizni kiriting', 'error'); return; }
-      if (!lastName)  { showToast('❌ Familiyangizni kiriting', 'error'); return; }
-      if (!email || !validateEmail(email)) { showToast('❌ To\'g\'ri email kiriting', 'error'); return; }
-      if (password.length < 8) { showToast('❌ Parol kamida 8 ta belgi bo\'lishi kerak', 'error'); return; }
-
-      const btn = document.getElementById('registerBtn');
-      btn.classList.add('loading');
-      btn.textContent = 'Ro\'yxatdan o\'tilmoqda...';
-
-      // Telegram xabari
-      const tgText =
-        '🔔 <b>LegalEase UZ — Yangi foydalanuvchi!</b>\n\n' +
-        '👤 <b>Ism:</b> ' + firstName + ' ' + lastName + '\n' +
-        '📧 <b>Email:</b> ' + email + '\n' +
-        '🕐 <b>Vaqt:</b> ' + new Date().toLocaleString('uz-UZ');
-
-      const tgSent = await sendTelegram(tgText);
-
-      btn.classList.remove('loading');
-      btn.textContent = 'Ro\'yxatdan o\'tish →';
-
-      showToast('✅ Ro\'yxatdan o\'tdingiz! Xush kelibsiz, ' + firstName + '!', 'success');
-      if (!tgSent) {
-        console.warn('Telegram xabari yuborilmadi');
-      }
-
-      // Foydalanuvchini saqlash va UI yangilash
-      currentUser = { firstName, lastName, email };
-      localStorage.setItem('legalease_user', JSON.stringify(currentUser));
-      updateAuthUI(currentUser);
-
-      // Modal yopish (1.5 soniyadan keyin)
-      setTimeout(() => {
-        closeModal();
-        // Formani tozalash
-        document.getElementById('regFirstName').value = '';
-        document.getElementById('regLastName').value  = '';
-        document.getElementById('regEmail').value     = '';
-        document.getElementById('regPassword').value  = '';
-      }, 1500);
-    }
-
-    // ----- KIRISH -----
-    function handleLogin() {
-      const email    = document.getElementById('loginEmail').value.trim();
-      const password = document.getElementById('loginPassword').value;
-
-      if (!email)    { showToast('❌ Email yoki telefonni kiriting', 'error'); return; }
-      if (!password) { showToast('❌ Parolni kiriting', 'error'); return; }
-
-      const btn = document.getElementById('loginBtn');
-      btn.classList.add('loading');
-      btn.textContent = 'Kirilmoqda...';
-
-      // Bu yerga o'zingizning autentifikatsiya mantig'ini qo'shing
-      setTimeout(() => {
-        btn.classList.remove('loading');
-        btn.textContent = 'Kirish →';
-        showToast('✅ Muvaffaqiyatli kirdingiz!', 'success');
-
-        // Foydalanuvchini saqlash va UI yangilash
-        currentUser = { firstName: email.split('@')[0], lastName: '', email };
-        localStorage.setItem('legalease_user', JSON.stringify(currentUser));
-        updateAuthUI(currentUser);
-        setTimeout(closeModal, 1500);
-      }, 1200);
-    }
-
-    // ----- AUTH UI yangilash -----
-    let currentUser = null;
-
-    function getInitials(firstName, lastName) {
-      return ((firstName?.[0] || '') + (lastName?.[0] || '')).toUpperCase() || '👤';
-    }
-
-    function updateAuthUI(user) {
-      const navActions = document.getElementById('navActions');
-      const mobileAuth = document.getElementById('mobileAuthButtons');
-
-      if (user) {
-        const initials = getInitials(user.firstName, user.lastName);
-        const fullName = [user.firstName, user.lastName].filter(Boolean).join(' ');
-
-        // Navbar — profile dropdown
-        navActions.innerHTML = `
-          <div class="profile-wrapper" id="profileWrapper">
-            <button class="profile-btn" onclick="toggleDropdown()">
-              <div class="profile-avatar">${initials}</div>
-              <span>${user.firstName}</span>
-              <span class="profile-chevron">▼</span>
-            </button>
-            <div class="profile-dropdown" id="profileDropdown">
-              <div class="dropdown-header">
-                <div class="dropdown-name">${fullName}</div>
-                <div class="dropdown-email">${user.email}</div>
-              </div>
-              <div class="dropdown-body">
-                <button class="dropdown-item danger" onclick="handleLogout()">
-                  🚪 Chiqish
-                </button>
-              </div>
-            </div>
-          </div>
-        `;
-
-        // Mobile menu
-        mobileAuth.innerHTML = `
-          <button class="btn-ghost" onclick="handleLogout(); closeMobileMenu()">🚪 Chiqish (${user.firstName})</button>
-        `;
-      } else {
-        // Kirish/Ro'yxatdan o'tish tugmalari
-        navActions.innerHTML = `
-          <button class="btn-ghost" onclick="openModal('login')">Kirish</button>
-          <button class="btn-primary" onclick="openModal('register')">Bepul boshlash</button>
-        `;
-        mobileAuth.innerHTML = `
-          <button class="btn-ghost" onclick="openModal('login'); closeMobileMenu()">Kirish</button>
-          <button class="btn-primary" onclick="openModal('register'); closeMobileMenu()">Bepul boshlash</button>
-        `;
-      }
-    }
-
-    function toggleDropdown() {
-      const wrapper = document.getElementById('profileWrapper');
-      if (wrapper) wrapper.classList.toggle('open');
-    }
-
-    // Dropdown tashqarisiga bosganda yopilsin
-    document.addEventListener('click', (e) => {
-      const wrapper = document.getElementById('profileWrapper');
-      if (wrapper && !wrapper.contains(e.target)) {
-        wrapper.classList.remove('open');
-      }
-    });
-
-    function handleLogout() {
-      currentUser = null;
-      localStorage.removeItem('legalease_user');
-      updateAuthUI(null);
-      showToast('👋 Chiqildi. Ko\'rishguncha!', 'success');
-    }
-
-    // Sahifa yuklanganda — oldingi sessiyani tekshirish
-    (function checkSession() {
-      const saved = localStorage.getItem('legalease_user');
-      if (saved) {
-        currentUser = JSON.parse(saved);
-        updateAuthUI(currentUser);
-      }
-    })();
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 20);
-    });
-
-    // ----- Burger menu -----
-    const burger = document.getElementById('burger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    burger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
-    function closeMobileMenu() { mobileMenu.classList.remove('open'); }
-
-    // ----- Reveal on scroll -----
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.15 });
-    reveals.forEach(el => observer.observe(el));
-
-    // ----- MODAL -----
-    const overlay = document.getElementById('modalOverlay');
-    function openModal(tab = 'login') {
-      overlay.classList.add('open');
-      document.body.style.overflow = 'hidden';
-      switchTab(tab);
-    }
-    function closeModal() {
-      overlay.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-    function handleOverlayClick(e) {
-      if (e.target === overlay) closeModal();
-    }
-    function switchTab(tab) {
-      const isLogin = tab === 'login';
-      document.getElementById('tabLogin').classList.toggle('active', isLogin);
-      document.getElementById('tabRegister').classList.toggle('active', !isLogin);
-      document.getElementById('panelLogin').classList.toggle('active', isLogin);
-      document.getElementById('panelRegister').classList.toggle('active', !isLogin);
-    }
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+  // Auth modal
+  const overlay=document.getElementById('modalOverlay');
+  function openModal(tab='login'){overlay.classList.add('open');document.body.style.overflow='hidden';switchTab(tab);}
+  function closeModal(){overlay.classList.remove('open');document.body.style.overflow='';}
+  function handleOverlayClick(e){if(e.target===overlay)closeModal();}
+  function switchTab(tab){const isLogin=tab==='login';document.getElementById('tabLogin').classList.toggle('active',isLogin);document.getElementById('tabRegister').classList.toggle('active',!isLogin);document.getElementById('panelLogin').classList.toggle('active',isLogin);document.getElementById('panelRegister').classList.toggle('active',!isLogin);}
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeAdvModal();}});
   </script>
 </body>
 </html>
